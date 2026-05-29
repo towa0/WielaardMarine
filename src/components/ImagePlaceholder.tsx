@@ -23,14 +23,14 @@ export function ImagePlaceholder({
           viewBox="-125 -125 250 250"
           className="w-16 h-16 opacity-25"
           fill="none"
-          stroke="#b46a3a"
+          stroke="#c8682a"
           strokeWidth="5"
           strokeLinecap="round"
         >
           <circle cx="0" cy="0" r="110" />
           <path d="M-70 30 Q -35 10, 0 30 T 70 30" />
           <line x1="0" y1="-90" x2="0" y2="-10" />
-          <circle cx="0" cy="-100" r="8" fill="#b46a3a" stroke="none" />
+          <circle cx="0" cy="-100" r="8" fill="#c8682a" stroke="none" />
           <line x1="-50" y1="-40" x2="50" y2="-40" />
         </svg>
 

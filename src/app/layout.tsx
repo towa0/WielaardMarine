@@ -6,16 +6,16 @@ import { Footer } from '@/components/Footer'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.wielaardmarine.nl'), // ← update to your real domain
   title: {
-    default: 'WielaardMarine | Bootverhuur & Onderhoud Binnenmaas',
+    default: 'WielaardMarine | Bootverzorging & Bootverhuur Binnenmaas',
     template: '%s | WielaardMarine',
   },
   description:
-    'Bootverhuur en onderhoudsservice aan de Binnenmaas in de Hoeksche Waard. Verhuur van sloepen, motorjachten en kajuitboten voor dag- en weekverhuur. Geen vaarbewijs vereist voor onze sloepen.',
+    'Professioneel bootverzorging en polijsten door Julian Wielaard. Bootverhuur aan de Binnenmaas in de Hoeksche Waard. Geen vaarbewijs vereist voor onze sloepen.',
   keywords: [
     'bootverhuur binnenmaas',
     'sloep huren hoeksche waard',
-    'bootonderhoud numansdorp',
-    'bootverhuur hoeksche waard',
+    'boot polijsten',
+    'bootverzorging hoeksche waard',
     'sloep huren rotterdam omgeving',
     'varen binnenmaas',
     'wielaard marine',
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'nl_NL',
     siteName: 'WielaardMarine',
-    title: 'WielaardMarine | Bootverhuur & Onderhoud Binnenmaas',
+    title: 'WielaardMarine | Bootverzorging & Bootverhuur Binnenmaas',
     description:
-      'Bootverhuur en onderhoud aan de Binnenmaas in de Hoeksche Waard. Dag- en weekverhuur, geen vaarbewijs vereist voor sloepen.',
+      'Professioneel bootverzorging en bootverhuur aan de Binnenmaas in de Hoeksche Waard. Opgericht door Julian Wielaard vanuit passie voor het water.',
   },
   robots: {
     index: true,

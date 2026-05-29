@@ -59,20 +59,24 @@ export default async function BoatDetailPage({ params }: Props) {
 
           {/* ── LEFT: Images ── */}
           <div>
-            {boat.images.length > 0 ? (
-              <>
-                {/* Uncomment when you add real photos:
-                <Image
-                  src={`/images/boats/${boat.slug}/${boat.images[0]}`}
-                  alt={`${boat.name} — hoofdfoto`}
-                  width={900}
-                  height={600}
-                  priority
-                  className="w-full rounded-lg object-cover"
-                />
-                */}
-                <ImagePlaceholder label={`${boat.name} — foto 1`} aspectRatio="video" className="rounded-lg overflow-hidden" />
-              </>
+            {boat.coverImage ? (
+              <Image
+                src={boat.coverImage}
+                alt={`${boat.name} — hoofdfoto`}
+                width={900}
+                height={600}
+                priority
+                className="w-full rounded-lg object-cover"
+              />
+            ) : boat.images.length > 0 ? (
+              <Image
+                src={`/images/boats/${boat.slug}/${boat.images[0]}`}
+                alt={`${boat.name} — hoofdfoto`}
+                width={900}
+                height={600}
+                priority
+                className="w-full rounded-lg object-cover"
+              />
             ) : (
               <ImagePlaceholder label={boat.name} aspectRatio="video" className="rounded-lg overflow-hidden" />
             )}

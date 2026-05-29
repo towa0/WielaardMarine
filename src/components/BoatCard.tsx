@@ -14,20 +14,23 @@ export function BoatCard({ boat }: BoatCardProps) {
       className="group block bg-sand border border-navy/10 rounded-lg overflow-hidden hover:border-bronze/60 hover:shadow-md hover:shadow-navy/10 transition-all duration-300 hover:-translate-y-1"
     >
       {/* Image */}
-      <div className="relative">
-        {boat.images.length > 0 ? (
-          <>
-            {/* Uncomment when you have photos:
-            <Image
-              src={`/images/boats/${boat.slug}/${boat.images[0]}`}
-              alt={boat.name}
-              width={800}
-              height={450}
-              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            */}
-            <ImagePlaceholder label={boat.name} />
-          </>
+      <div className="relative overflow-hidden">
+        {boat.coverImage ? (
+          <Image
+            src={boat.coverImage}
+            alt={boat.name}
+            width={800}
+            height={450}
+            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : boat.images.length > 0 ? (
+          <Image
+            src={`/images/boats/${boat.slug}/${boat.images[0]}`}
+            alt={boat.name}
+            width={800}
+            height={450}
+            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+          />
         ) : (
           <ImagePlaceholder label={boat.name} />
         )}

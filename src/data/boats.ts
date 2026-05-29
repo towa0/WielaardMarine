@@ -26,6 +26,7 @@ export interface Boat {
   shortDescription: string   // shown on cards (~1 sentence)
   description: string        // full text for detail page (can use \n\n for paragraphs)
   images: string[]           // filenames inside /public/images/boats/[slug]/
+  coverImage?: string        // full /public path override used until per-boat photos exist
   featured: boolean          // show on homepage
   available: boolean         // set false to mark as "momenteel niet beschikbaar"
 }
@@ -58,6 +59,7 @@ De boot is uitgerust met een 40 pk Yamaha buitenboordmotor, een Bluetooth-geluid
 
 De Kievit vaart comfortabel op de Binnenmaas en de omringende wateren van de Hoeksche Waard. Ideaal voor picknicks op het water, vissen of gewoon genieten van het Nederlandse polderlandschap.`,
     images: [],
+    coverImage: '/images/boattype-1_water.jpg',
     features: [
       'Geen vaarbewijs vereist',
       'Bimini-top (zonnescherm)',
@@ -88,6 +90,7 @@ Uitgerust met een zuinige 25 pk Mercury motor, is De Strandloper ook geschikt vo
 
 Perfect voor koppels, kleine gezinnen of vrienden die een rustige dag op het water willen doorbrengen.`,
     images: [],
+    coverImage: '/images/boattype-1-2_water.jpg',
     features: [
       'Geen vaarbewijs vereist',
       'Zuinige 25 pk motor',
@@ -116,6 +119,7 @@ De boot is uitgerust met twee krachtige 60 pk Suzuki buitenboordmotoren, een Bim
 
 Vaarbewijs vereist (CWO III of vergelijkbaar). Wij kunnen u desgewenst doorverwijzen naar een erkende schipper.`,
     images: [],
+    coverImage: '/images/boattype-1_water.jpg',
     features: [
       'Vaarbewijs vereist (CWO III)',
       'Twee motoren voor extra betrouwbaarheid',
@@ -146,6 +150,7 @@ Met zijn 30 pk Honda motor en stabiele romp is De Merel comfortabel te besturen 
 
 Perfect voor een romantisch weekendje weg of voor vissers die vroeg willen opstaan. Inclusief beddengoed, gaskomfoor en handdoeken.`,
     images: [],
+    coverImage: '/images/boattype-1-2_water.jpg',
     features: [
       'Vaarbewijs vereist (CWO II)',
       'Slaapruimte voor 2 personen',

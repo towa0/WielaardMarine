@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -10,28 +11,18 @@ export function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <svg
-                viewBox="-125 -125 250 250"
-                className="w-9 h-9 text-bronze"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="8"
-                strokeLinecap="round"
-              >
-                <circle cx="0" cy="0" r="110" />
-                <path d="M-70 30 Q -35 10, 0 30 T 70 30" />
-                <line x1="0" y1="-90" x2="0" y2="-10" />
-                <circle cx="0" cy="-100" r="10" fill="#b46a3a" stroke="none" />
-                <line x1="-50" y1="-40" x2="50" y2="-40" />
-              </svg>
-              <span className="font-serif text-cream text-lg">
-                Wielaard<span className="text-bronze">Marine</span>
-              </span>
+            <div className="mb-4">
+              <Image
+                src="/images/wielaard_marine_logo.png"
+                alt="WielaardMarine"
+                width={160}
+                height={44}
+                className="h-11 w-auto rounded"
+              />
             </div>
             <p className="text-cream/60 text-sm leading-relaxed max-w-sm">
-              Bootverhuur en onderhoud aan de Binnenmaas in de Hoeksche Waard.
-              Al jaren dé plek voor een onvergetelijk dagje varen.
+              Bootverzorging en bootverhuur aan de Binnenmaas in de Hoeksche Waard.
+              Opgericht door Julian Wielaard vanuit een passie voor het water.
             </p>
             <p className="mt-4 text-bronze/60 text-xs font-mono uppercase tracking-widest">
               Binnenmaas · Hoeksche Waard

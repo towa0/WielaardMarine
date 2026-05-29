@@ -2,13 +2,13 @@
 
 @theme {
   /* Brand colors — edit here to retheme the whole site */
-  --color-navy:        #0d2540;
-  --color-navy-dark:   #091b30;
-  --color-navy-light:  #152f4e;
-  --color-navy-card:   #1a3a5c;
-  --color-bronze:      #b46a3a;
-  --color-bronze-light:#c97a4a;
-  --color-bronze-dark: #8a4e28;
+  --color-navy:        #0a1f3d;
+  --color-navy-dark:   #061429;
+  --color-navy-light:  #112952;
+  --color-navy-card:   #163366;
+  --color-bronze:      #c8682a;
+  --color-bronze-light:#de7b38;
+  --color-bronze-dark: #a04e18;
   --color-cream:       #e9dfc9;   /* main page background */
   --color-cream-muted: #c4b898;   /* muted text on dark navy sections */
   --color-sand:        #f2ead8;   /* lighter than cream, used for cards on cream bg */
@@ -25,7 +25,7 @@ html {
 
 body {
   background-color: #e9dfc9;
-  color: #0d2540;
+  color: #0a1f3d;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
