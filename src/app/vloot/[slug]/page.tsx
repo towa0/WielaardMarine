@@ -155,7 +155,7 @@ export default async function BoatDetailPage({ params }: Props) {
                 Reserveer {boat.name}
               </Link>
               <a
-                href="tel:+31612345678"
+                href="tel:+31645345868"
                 className="flex-1 py-3.5 border border-navy/30 text-navy text-center rounded hover:border-navy hover:bg-navy/5 transition-colors text-sm"
               >
                 Bel voor vragen

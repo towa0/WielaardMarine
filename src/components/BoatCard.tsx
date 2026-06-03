@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import type { Boat } from '@/data/boats'
-import { ImagePlaceholder } from './ImagePlaceholder'
+import Link from "next/link";
+import Image from "next/image";
+import type { Boat } from "@/data/boats";
+import { ImagePlaceholder } from "./ImagePlaceholder";
 
 interface BoatCardProps {
-  boat: Boat
+  boat: Boat;
 }
 
 export function BoatCard({ boat }: BoatCardProps) {
@@ -69,5 +69,5 @@ export function BoatCard({ boat }: BoatCardProps) {
         </div>
       </div>
     </Link>
-  )
+  );
 }

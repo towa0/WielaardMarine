@@ -1,10 +1,9 @@
 'use client'
 
-// NOTE: This form currently shows a thank-you message on submit but sends nothing.
-// Options to wire it up:
-//   A) Formspree (easiest): change onSubmit to a real fetch to https://formspree.io/f/YOUR_ID
-//   B) Netlify Forms: add data-netlify="true" to <form>, remove e.preventDefault()
-//   C) Custom API route: POST to /api/contact (add src/app/api/contact/route.ts)
+// Contact form uses Formspree (free tier — up to 50 submissions/month).
+// To activate: sign up at https://formspree.io, create a form, and replace
+// FORMSPREE_FORM_ID below with your form ID (the part after /f/ in the endpoint).
+const FORMSPREE_FORM_ID = 'YOUR_FORM_ID'
 
 import { useState } from 'react'
 
@@ -35,14 +34,27 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setLoading(true)
-    // Replace this with your actual submit logic (see note above)
-    setTimeout(() => {
+    const form = e.currentTarget
+    const data = new FormData(form)
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        alert('Er is iets misgegaan. Probeer het opnieuw of bel ons direct.')
+      }
+    } catch {
+      alert('Er is iets misgegaan. Probeer het opnieuw of bel ons direct.')
+    } finally {
       setLoading(false)
-      setSubmitted(true)
-    }, 800)
+    }
   }
 
   return (
@@ -169,8 +181,8 @@ export default function ContactPage() {
               <div className="space-y-5 text-sm">
                 <div>
                   <p className="text-cream/40 text-xs uppercase tracking-wider mb-1">Telefoon</p>
-                  <a href="tel:+31612345678" className="text-cream hover:text-bronze transition-colors text-base font-medium">
-                    +31 6 12 34 56 78
+                  <a href="tel:+31645345868" className="text-cream hover:text-bronze transition-colors text-base font-medium">
+                    06 4534 5868
                   </a>
                 </div>
                 <div>
@@ -201,7 +213,7 @@ export default function ContactPage() {
                 Bel ons direct — wij controleren de beschikbaarheid meteen voor u.
               </p>
               <a
-                href="tel:+31612345678"
+                href="tel:+31645345868"
                 className="block w-full py-3 bg-bronze text-navy font-semibold text-center rounded hover:bg-bronze-light transition-colors text-sm"
               >
                 Bel nu
