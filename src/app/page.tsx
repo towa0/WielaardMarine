@@ -176,7 +176,7 @@ export default function HomePage() {
           /> */}
 
           <h1 className="font-serif text-cream text-5xl sm:text-6xl lg:text-7xl tracking-wide leading-none mb-5">
-            WielaardMarine
+            Wielaard Marine
           </h1>
 
           {/* Location sub-line — monospace bronze, wide letter-spacing, original style */}
