@@ -19,13 +19,13 @@ export default function VlootPage() {
   const typesPresent = boatTypes.filter((t) => byType(t).length > 0)
 
   return (
-    <div className="bg-cream min-h-screen">
+    <div className="bg-mist min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
 
         {/* Page header */}
         <div className="mb-14 text-center">
-          <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">Beschikbare boten</p>
-          <h1 className="font-serif text-navy text-4xl sm:text-5xl mb-5">Onze vloot</h1>
+          <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">Beschikbare boten</p>
+          <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-5">Onze vloot</h1>
           <p className="text-ink-muted max-w-xl mx-auto leading-relaxed">
             Kies de boot die bij uw plannen past. Twijfelt u? Bel ons — wij helpen u graag de juiste keuze maken.
           </p>
@@ -39,8 +39,8 @@ export default function VlootPage() {
             { label: 'Verhuur vanaf', value: '½ dag' },
             { label: 'Honden', value: 'Welkom' },
           ].map((item) => (
-            <div key={item.label} className="bg-sand border border-navy/10 rounded-lg p-5 text-center">
-              <p className="font-serif text-bronze text-2xl mb-1">{item.value}</p>
+            <div key={item.label} className="bg-white border border-navy/10 rounded-lg p-5 text-center">
+              <p className="font-heading text-azure text-2xl mb-1">{item.value}</p>
               <p className="text-ink-muted text-xs font-mono uppercase tracking-wider">{item.label}</p>
             </div>
           ))}
@@ -50,7 +50,7 @@ export default function VlootPage() {
         {typesPresent.map((type) => (
           <section key={type} className="mb-14">
             <div className="flex items-center gap-4 mb-6">
-              <h2 className="font-serif text-navy text-2xl">{type}en</h2>
+              <h2 className="font-heading text-navy text-2xl">{type}en</h2>
               <div className="flex-1 h-px bg-navy/10" />
               <span className="text-ink-muted text-xs font-mono">{byType(type).length} boot{byType(type).length !== 1 ? 'en' : ''}</span>
             </div>
@@ -65,7 +65,7 @@ export default function VlootPage() {
         {/* Unavailable boats */}
         {unavailable.length > 0 && (
           <section className="mt-16 pt-10 border-t border-navy/10">
-            <h2 className="font-serif text-ink-muted text-xl mb-6">Momenteel niet beschikbaar</h2>
+            <h2 className="font-heading text-ink-muted text-xl mb-6">Momenteel niet beschikbaar</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 opacity-50">
               {unavailable.map((boat) => (
                 <BoatCard key={boat.slug} boat={boat} />
@@ -75,14 +75,14 @@ export default function VlootPage() {
         )}
 
         {/* Contact strip */}
-        <div className="mt-16 bg-navy border border-cream/10 rounded-lg p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-16 bg-navy border border-white/10 rounded-lg p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="font-serif text-cream text-xl mb-1">Vragen of specifieke wensen?</h3>
-            <p className="text-cream/60 text-sm">Wij denken graag mee over de beste optie voor uw groep.</p>
+            <h3 className="font-heading text-white text-xl mb-1">Vragen of specifieke wensen?</h3>
+            <p className="text-white/60 text-sm">Wij denken graag mee over de beste optie voor uw groep.</p>
           </div>
           <a
             href="tel:+31612345678"
-            className="shrink-0 px-6 py-3 bg-bronze text-navy font-semibold rounded hover:bg-bronze-light transition-colors text-sm"
+            className="shrink-0 px-6 py-3 bg-white text-navy font-semibold rounded hover:bg-mist transition-colors text-sm"
           >
             Bel ons
           </a>

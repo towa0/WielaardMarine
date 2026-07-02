@@ -43,7 +43,7 @@ export default async function BoatDetailPage({ params }: Props) {
   ]
 
   return (
-    <div className="bg-cream min-h-screen">
+    <div className="bg-mist min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
 
         {/* Breadcrumb */}
@@ -104,7 +104,7 @@ export default async function BoatDetailPage({ params }: Props) {
           {/* ── RIGHT: Info ── */}
           <div className="lg:sticky lg:top-24">
             <div className="flex items-center gap-3 mb-2">
-              <span className="text-bronze text-xs font-mono uppercase tracking-wider border border-bronze/50 rounded px-2 py-0.5">
+              <span className="text-azure text-xs font-mono uppercase tracking-wider border border-azure/50 rounded px-2 py-0.5">
                 {boat.type}
               </span>
               {!boat.available && (
@@ -114,12 +114,12 @@ export default async function BoatDetailPage({ params }: Props) {
               )}
             </div>
 
-            <h1 className="font-serif text-navy text-4xl sm:text-5xl mb-4">{boat.name}</h1>
+            <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-4">{boat.name}</h1>
             <p className="text-ink-muted leading-relaxed mb-8">{boat.shortDescription}</p>
 
             {/* Pricing */}
-            <div className="bg-sand border border-navy/10 rounded-lg p-6 mb-8">
-              <h2 className="text-bronze text-xs font-mono uppercase tracking-widest mb-4">Tarieven</h2>
+            <div className="bg-white border border-navy/10 rounded-lg p-6 mb-8">
+              <h2 className="text-azure text-xs font-mono uppercase tracking-widest mb-4">Tarieven</h2>
               <dl className="space-y-2 text-sm divide-y divide-navy/8">
                 {boat.pricePerHalfDay && (
                   <div className="flex justify-between items-center py-2">
@@ -150,7 +150,7 @@ export default async function BoatDetailPage({ params }: Props) {
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <Link
                 href={`/contact?boot=${boat.slug}`}
-                className="flex-1 py-3.5 bg-bronze text-navy font-semibold text-center rounded hover:bg-bronze-light transition-colors"
+                className="flex-1 py-3.5 bg-navy text-white font-semibold text-center rounded hover:bg-navy-light transition-colors"
               >
                 Reserveer {boat.name}
               </Link>
@@ -164,7 +164,7 @@ export default async function BoatDetailPage({ params }: Props) {
 
             {/* Specs */}
             <div className="mb-8">
-              <h2 className="text-bronze text-xs font-mono uppercase tracking-widest mb-4">Specificaties</h2>
+              <h2 className="text-azure text-xs font-mono uppercase tracking-widest mb-4">Specificaties</h2>
               <dl className="divide-y divide-navy/10">
                 {specs.map(([label, value]) => (
                   <div key={label} className="flex justify-between py-2.5 text-sm">
@@ -178,11 +178,11 @@ export default async function BoatDetailPage({ params }: Props) {
             {/* Features */}
             {boat.features.length > 0 && (
               <div>
-                <h2 className="text-bronze text-xs font-mono uppercase tracking-widest mb-4">Inbegrepen</h2>
+                <h2 className="text-azure text-xs font-mono uppercase tracking-widest mb-4">Inbegrepen</h2>
                 <ul className="space-y-2">
                   {boat.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm text-ink-muted">
-                      <svg viewBox="0 0 20 20" className="w-4 h-4 text-bronze shrink-0 mt-0.5" fill="currentColor">
+                      <svg viewBox="0 0 20 20" className="w-4 h-4 text-azure shrink-0 mt-0.5" fill="currentColor">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       {f}
@@ -196,7 +196,7 @@ export default async function BoatDetailPage({ params }: Props) {
 
         {/* ── Full description ── */}
         <div className="mt-16 max-w-3xl">
-          <h2 className="font-serif text-navy text-2xl mb-6">Over {boat.name}</h2>
+          <h2 className="font-heading text-navy text-2xl mb-6">Over {boat.name}</h2>
           <div className="space-y-4">
             {paragraphs.map((p, i) => (
               <p key={i} className="text-ink-muted leading-relaxed">
@@ -210,7 +210,7 @@ export default async function BoatDetailPage({ params }: Props) {
         <div className="mt-16 pt-8 border-t border-navy/10">
           <Link
             href="/vloot"
-            className="inline-flex items-center gap-2 text-bronze hover:text-bronze-dark transition-colors text-sm"
+            className="inline-flex items-center gap-2 text-azure hover:text-azure-dark transition-colors text-sm"
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5M12 19l-7-7 7-7" />

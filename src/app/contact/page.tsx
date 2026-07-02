@@ -58,14 +58,14 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="bg-cream min-h-screen">
+    <div className="bg-mist min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
         {/* Page header */}
         <div className="mb-14 text-center">
-          <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">
+          <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
             Kom in contact
           </p>
-          <h1 className="font-serif text-navy text-4xl sm:text-5xl mb-5">
+          <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-5">
             Contact
           </h1>
           <p className="text-ink-muted max-w-lg mx-auto leading-relaxed">
@@ -78,11 +78,11 @@ export default function ContactPage() {
           {/* ── Contact form ── */}
           <div className="lg:col-span-3">
             {submitted ? (
-              <div className="bg-sand border border-navy/10 rounded-lg p-10 text-center">
-                <div className="w-14 h-14 rounded-full bg-bronze/10 flex items-center justify-center mx-auto mb-5">
+              <div className="bg-white border border-navy/10 rounded-lg p-10 text-center">
+                <div className="w-14 h-14 rounded-full bg-azure/10 flex items-center justify-center mx-auto mb-5">
                   <svg
                     viewBox="0 0 24 24"
-                    className="w-7 h-7 text-bronze"
+                    className="w-7 h-7 text-azure"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     />
                   </svg>
                 </div>
-                <h2 className="font-serif text-navy text-2xl mb-3">Bedankt!</h2>
+                <h2 className="font-heading text-navy text-2xl mb-3">Bedankt!</h2>
                 <p className="text-ink-muted text-sm">
                   Uw bericht is ontvangen. Wij nemen zo snel mogelijk contact
                   met u op.
@@ -106,7 +106,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-xs font-mono uppercase tracking-widest text-bronze mb-2"
+                      className="block text-xs font-mono uppercase tracking-widest text-azure mb-2"
                     >
                       Naam *
                     </label>
@@ -115,14 +115,14 @@ export default function ContactPage() {
                       name="name"
                       type="text"
                       required
-                      className="w-full bg-sand border border-navy/20 rounded px-4 py-3 text-navy text-sm placeholder:text-ink-muted/40 focus:outline-none focus:border-bronze transition-colors"
+                      className="w-full bg-white border border-navy/20 rounded px-4 py-3 text-navy text-sm placeholder:text-ink-muted/40 focus:outline-none focus:border-azure transition-colors"
                       placeholder="Jan Jansen"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-xs font-mono uppercase tracking-widest text-bronze mb-2"
+                      className="block text-xs font-mono uppercase tracking-widest text-azure mb-2"
                     >
                       E-mail *
                     </label>
@@ -131,7 +131,7 @@ export default function ContactPage() {
                       name="email"
                       type="email"
                       required
-                      className="w-full bg-sand border border-navy/20 rounded px-4 py-3 text-navy text-sm placeholder:text-ink-muted/40 focus:outline-none focus:border-bronze transition-colors"
+                      className="w-full bg-white border border-navy/20 rounded px-4 py-3 text-navy text-sm placeholder:text-ink-muted/40 focus:outline-none focus:border-azure transition-colors"
                       placeholder="jan@voorbeeld.nl"
                     />
                   </div>
@@ -141,7 +141,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="block text-xs font-mono uppercase tracking-widest text-bronze mb-2"
+                      className="block text-xs font-mono uppercase tracking-widest text-azure mb-2"
                     >
                       Telefoon
                     </label>
@@ -149,25 +149,26 @@ export default function ContactPage() {
                       id="phone"
                       name="phone"
                       type="tel"
-                      className="w-full bg-sand border border-navy/20 rounded px-4 py-3 text-navy text-sm placeholder:text-ink-muted/40 focus:outline-none focus:border-bronze transition-colors"
+                      className="w-full bg-white border border-navy/20 rounded px-4 py-3 text-navy text-sm placeholder:text-ink-muted/40 focus:outline-none focus:border-azure transition-colors"
                       placeholder="+31 6 00 00 00 00"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-xs font-mono uppercase tracking-widest text-bronze mb-2"
+                      className="block text-xs font-mono uppercase tracking-widest text-azure mb-2"
                     >
                       Onderwerp
                     </label>
                     <select
                       id="subject"
                       name="subject"
-                      className="w-full bg-sand border border-navy/20 rounded px-4 py-3 text-navy text-sm focus:outline-none focus:border-bronze transition-colors"
+                      className="w-full bg-white border border-navy/20 rounded px-4 py-3 text-navy text-sm focus:outline-none focus:border-azure transition-colors"
                     >
                       <option value="verhuur">Bootverhuur</option>
-                      <option value="onderhoud">Onderhoud / reparatie</option>
-                      <option value="stalling">Winterstalling</option>
+                      <option value="polijsten">
+                        Polijsten & bootverzorging
+                      </option>
                       <option value="overig">Overig</option>
                     </select>
                   </div>
@@ -176,7 +177,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="date"
-                    className="block text-xs font-mono uppercase tracking-widest text-bronze mb-2"
+                    className="block text-xs font-mono uppercase tracking-widest text-azure mb-2"
                   >
                     Gewenste datum
                   </label>
@@ -184,14 +185,14 @@ export default function ContactPage() {
                     id="date"
                     name="date"
                     type="date"
-                    className="w-full bg-sand border border-navy/20 rounded px-4 py-3 text-navy text-sm focus:outline-none focus:border-bronze transition-colors"
+                    className="w-full bg-white border border-navy/20 rounded px-4 py-3 text-navy text-sm focus:outline-none focus:border-azure transition-colors"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-mono uppercase tracking-widest text-bronze mb-2"
+                    className="block text-xs font-mono uppercase tracking-widest text-azure mb-2"
                   >
                     Bericht *
                   </label>
@@ -200,7 +201,7 @@ export default function ContactPage() {
                     name="message"
                     required
                     rows={5}
-                    className="w-full bg-sand border border-navy/20 rounded px-4 py-3 text-navy text-sm placeholder:text-ink-muted/40 focus:outline-none focus:border-bronze transition-colors resize-none"
+                    className="w-full bg-white border border-navy/20 rounded px-4 py-3 text-navy text-sm placeholder:text-ink-muted/40 focus:outline-none focus:border-azure transition-colors resize-none"
                     placeholder="Vertel ons waarmee wij u kunnen helpen…"
                   />
                 </div>
@@ -208,7 +209,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3.5 bg-bronze text-navy font-semibold rounded hover:bg-bronze-light disabled:opacity-60 transition-colors text-sm"
+                  className="w-full py-3.5 bg-navy text-white font-semibold rounded hover:bg-navy-light disabled:opacity-60 transition-colors text-sm"
                 >
                   {loading ? "Bezig met verzenden…" : "Verstuur bericht"}
                 </button>
@@ -223,49 +224,49 @@ export default function ContactPage() {
           {/* ── Sidebar ── */}
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-navy rounded-lg p-7">
-              <h2 className="text-bronze text-xs font-mono uppercase tracking-widest mb-5">
+              <h2 className="text-azure text-xs font-mono uppercase tracking-widest mb-5">
                 Direct contact
               </h2>
               <div className="space-y-5 text-sm">
                 <div>
-                  <p className="text-cream/40 text-xs uppercase tracking-wider mb-1">
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-1">
                     Telefoon
                   </p>
                   <a
                     href="tel:+31645345868"
-                    className="text-cream hover:text-bronze transition-colors text-base font-medium"
+                    className="text-white hover:text-azure-light transition-colors text-base font-medium"
                   >
                     06 4534 5868
                   </a>
                 </div>
                 <div>
-                  <p className="text-cream/40 text-xs uppercase tracking-wider mb-1">
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-1">
                     E-mail
                   </p>
                   <a
-                    href="mailto:info@wielaardmarine.nl"
-                    className="text-cream hover:text-bronze transition-colors"
+                    href="mailto:Julian5875wielaard@gmail.com"
+                    className="text-white hover:text-azure-light transition-colors"
                   >
-                    info@wielaardmarine.nl
+                    Julian5875wielaard@gmail.com
                   </a>
                 </div>
                 <div>
-                  <p className="text-cream/40 text-xs uppercase tracking-wider mb-1">
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-1">
                     Adres
                   </p>
                   {/* Update this */}
-                  <address className="not-italic text-cream/70 leading-relaxed">
-                    Havenweg 1<br />
-                    3281 XX Numansdorp
+                  <address className="not-italic text-white/70 leading-relaxed">
+                    Maaslaantje 9<br />
+                    3299 AM Maasdam
                     <br />
-                    Hoeksche Waard
+                    {/*Hoeksche Waard*/}
                   </address>
                 </div>
                 <div>
-                  <p className="text-cream/40 text-xs uppercase tracking-wider mb-1">
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-1">
                     Openingstijden
                   </p>
-                  <p className="text-cream/70">
+                  <p className="text-white/70">
                     Ma – Za: 08:00 – 18:00
                     <br />
                     Zo: 09:00 – 16:00
@@ -274,8 +275,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="bg-sand border border-navy/10 rounded-lg p-7">
-              <h2 className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">
+            <div className="bg-white border border-navy/10 rounded-lg p-7">
+              <h2 className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
                 Vlug reserveren?
               </h2>
               <p className="text-ink-muted text-sm mb-4">
@@ -284,7 +285,7 @@ export default function ContactPage() {
               </p>
               <a
                 href="tel:+31645345868"
-                className="block w-full py-3 bg-bronze text-navy font-semibold text-center rounded hover:bg-bronze-light transition-colors text-sm"
+                className="block w-full py-3 bg-navy text-white font-semibold text-center rounded hover:bg-navy-light transition-colors text-sm"
               >
                 Bel nu
               </a>
@@ -295,10 +296,10 @@ export default function ContactPage() {
         {/* FAQ */}
         <section className="mt-24">
           <div className="text-center mb-10">
-            <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">
+            <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
               Veelgestelde vragen
             </p>
-            <h2 className="font-serif text-navy text-3xl">FAQ</h2>
+            <h2 className="font-heading text-navy text-3xl">FAQ</h2>
           </div>
           <div className="max-w-3xl mx-auto divide-y divide-navy/10">
             {faqs.map((faq) => (

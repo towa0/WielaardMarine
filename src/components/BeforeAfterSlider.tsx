@@ -77,16 +77,16 @@ export function BeforeAfterSlider({ before, after, className = "" }: Props) {
         className="absolute top-1/2 z-10 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white shadow-2xl flex items-center justify-center pointer-events-none"
         style={{ left: `${pos}%` }}
       >
-        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="#0a1f3d" strokeWidth="2.5" strokeLinecap="round">
+        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="#123c69" strokeWidth="2.5" strokeLinecap="round">
           <path d="M9 18l-6-6 6-6M15 6l6 6-6 6" />
         </svg>
       </div>
 
       {/* Labels */}
-      <span className="absolute bottom-3 left-3 z-10 bg-[#0a1f3d]/75 text-[#e9dfc9] text-xs font-mono uppercase tracking-widest px-2.5 py-1 rounded pointer-events-none">
+      <span className="absolute bottom-3 left-3 z-10 bg-navy/75 text-white text-xs font-mono uppercase tracking-widest px-2.5 py-1 rounded pointer-events-none">
         Voor
       </span>
-      <span className="absolute bottom-3 right-3 z-10 bg-[#c8682a]/90 text-[#0a1f3d] text-xs font-mono uppercase tracking-widest px-2.5 py-1 rounded pointer-events-none">
+      <span className="absolute bottom-3 right-3 z-10 bg-azure/90 text-white text-xs font-mono uppercase tracking-widest px-2.5 py-1 rounded pointer-events-none">
         Na
       </span>
     </div>

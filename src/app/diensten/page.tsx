@@ -6,7 +6,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 export const metadata: Metadata = {
   title: "Diensten",
   description:
-    "WielaardMarine biedt bootverhuur, jaarlijks onderhoud, winterstalling en motorreparatie voor boten aan de Binnenmaas in de Hoeksche Waard.",
+    "WielaardMarine biedt bootverhuur en professioneel polijsten & bootverzorging aan de Binnenmaas in de Hoeksche Waard.",
   alternates: { canonical: "/diensten" },
 };
 
@@ -38,123 +38,47 @@ Alle boten worden schoongemaakt afgeleverd, zijn voorzien van een volledig veili
     ctaHref: "/vloot",
   },
   {
-    id: "onderhoud",
-    label: "Onderhoud & Reparatie",
-    title: "Uw boot in topconditie",
-    description: `Een goed onderhouden boot is een veilige boot. WielaardMarine verzorgt het volledige jaarlijkse onderhoud van uw pleziervaartuig: van motorservice en rompbehandeling tot elektrische systemen en zeilen.
+    id: "polijsten",
+    label: "Polijsten & Bootverzorging",
+    title: "Uw boot in nieuwstaat",
+    description: `Na een paar seizoenen op het water verliezen de meeste boten hun glans en zien lak en gelcoat er dof en verweerd uit. Wij brengen de oorspronkelijke glans terug met professioneel polijstwerk.
 
-Wij werken met merken als Yamaha, Mercury, Suzuki en Honda, en hebben jarenlange ervaring met zowel buitenboordmotoren als inboardmotoren.
+Polijsten verwijdert oxidatie, krassen en doffe vlekken uit de lak en gelcoat. Het resultaat is een diepglanzende afwerking die uw boot niet alleen mooier maakt, maar ook beter beschermt tegen weersinvloeden, vuil en verkleuring.
 
-Brengt u uw boot bij ons in stalling? Dan combineren wij de onderhoudswerkzaamheden efficiënt met uw stallingperiode, zodat uw boot klaar is als het vaarseizoen begint.`,
+Elke behandeling wordt met de hand uitgevoerd en afgestemd op de staat van uw boot — van een lichte opfrisbeurt tot een volledige restauratie van de glans.`,
     highlights: [
-      "Jaarlijks onderhoud en APK-keuring",
-      "Motor- en brandstofservice",
-      "Romp- en antifoulingbehandeling",
-      "Elektrische systemen",
-      "Mechanische reparaties",
-      "Winterklaar maken",
+      "Verwijdert oxidatie, krassen en doffe vlekken",
+      "Diepglanzende, beschermende afwerking",
+      "Geschikt voor lak en gelcoat",
+      "Op maat: van opfrisbeurt tot volledige restauratie",
+      "Handmatig uitgevoerd, oog voor detail",
     ],
     pricing: [
-      { label: "Winterklaar maken", from: "op aanvraag" },
-      { label: "Jaarservice motor", from: "op aanvraag" },
-      { label: "Rompbehandeling", from: "op aanvraag" },
+      { label: "Kleine sloep / tender", from: "op aanvraag" },
+      { label: "Motorjacht / kajuitboot", from: "op aanvraag" },
     ],
-    cta: "Neem contact op",
-    ctaHref: "/contact",
-  },
-  {
-    id: "stalling",
-    label: "Winterstalling",
-    title: "Veilig en droog de winter door",
-    description: `Wanneer het vaarseizoen voorbij is, kunt u uw boot bij ons in stalling geven. Wij bieden zowel overdekte stallingplaatsen als buitenstallingplaatsen op ons terrein aan de Binnenmaas.
-
-Uw boot wordt bij ontvangst geïnspecteerd en geregistreerd. Eventuele schade wordt vastgelegd. Winteronderhoud — zoals romp- en motorbehandeling — voeren wij desgewenst ter plaatse uit.
-
-Ons terrein is omheind, verlicht en beveiligd.`,
-    highlights: [
-      "Overdekte en buitenstalling",
-      "Beveiligd, omheind terrein",
-      "Inspectie bij inname en uitname",
-      "Onderhoud combineren met stalling",
-      "Kraanservice voor te water laten",
-    ],
-    pricing: [
-      { label: "Buitenstalling (per meter, per maand)", from: "€ 12" },
-      { label: "Overdekte stalling (per meter, per maand)", from: "€ 22" },
-    ],
-    cta: "Informeer naar stallingplaatsen",
+    cta: "Offerte aanvragen",
     ctaHref: "/contact",
   },
 ];
 
 export default function DienstenPage() {
   return (
-    <div className="bg-cream min-h-screen">
+    <div className="bg-mist min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
         {/* Page header */}
         <div className="mb-16 text-center">
-          <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">
+          <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
             Wat wij bieden
           </p>
-          <h1 className="font-serif text-navy text-4xl sm:text-5xl mb-5">
+          <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-5">
             Onze diensten
           </h1>
           <p className="text-ink-muted max-w-xl mx-auto leading-relaxed">
-            Van recreatieve verhuur tot professioneel onderhoud — WielaardMarine
-            is uw partner aan de Binnenmaas.
+            Van recreatieve verhuur tot vakkundig polijsten en bootverzorging
+            — WielaardMarine is uw partner aan de Binnenmaas.
           </p>
         </div>
-
-        {/* Before / After showcase */}
-        <section className="mb-20">
-          <div className="text-center mb-8">
-            <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-2">
-              Polijsten & bootverzorging
-            </p>
-            <h2 className="font-serif text-navy text-3xl mb-2">
-              Zie het resultaat
-            </h2>
-            <p className="text-ink-muted text-sm">
-              Sleep de schuifbalk om het verschil te zien
-            </p>
-          </div>
-
-          {/* Full-width slider */}
-          <BeforeAfterSlider
-            before={{
-              src: "/images/boat_washed_after.jpg",
-              alt: "Boot na polijsten",
-            }}
-            after={{
-              src: "/images/boat_washed_before.JPG",
-              alt: "Boot voor polijsten",
-            }}
-            className="aspect-[16/9] rounded-xl shadow-xl mb-8"
-          />
-
-          {/* Polished result — image left, text right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/poloshed_boat1.jpg"
-                alt="Gepolijst motorjacht — eindresultaat"
-                fill
-                className="object-cover object-center"
-              />
-            </div>
-            <div className="bg-sand border border-navy/10 rounded-lg p-6">
-              <p className="text-xs text-bronze font-mono uppercase tracking-widest mb-3">
-                Eindresultaat
-              </p>
-              <p className="text-ink-muted text-sm leading-relaxed">
-                Polijsten verwijdert oxidatie, krassen en doffe vlekken uit de
-                lak en gelcoat. Het resultaat: een diepglanzende afwerking die
-                de boot niet alleen mooier maakt, maar ook beter beschermt tegen
-                verwering en verkleuring.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* Quick nav anchors */}
         <div className="flex flex-wrap gap-2 mb-16 justify-center">
@@ -162,7 +86,7 @@ export default function DienstenPage() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="px-5 py-2 border border-navy/20 text-ink-muted text-sm rounded-full hover:border-bronze hover:text-bronze transition-colors"
+              className="px-5 py-2 border border-navy/20 text-ink-muted text-sm rounded-full hover:border-azure hover:text-azure transition-colors"
             >
               {s.label}
             </a>
@@ -173,15 +97,51 @@ export default function DienstenPage() {
         <div className="space-y-24">
           {services.map((s, idx) => (
             <section key={s.id} id={s.id} className="scroll-mt-24">
+              {s.id === "polijsten" && (
+                <div className="mb-14">
+                  <div className="text-center mb-8">
+                    <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
+                      Zie het verschil
+                    </p>
+                    <h3 className="font-heading text-navy text-2xl mb-2">
+                      Voor en na het polijsten
+                    </h3>
+                    <p className="text-ink-muted text-sm">
+                      Sleep de schuifbalk om het resultaat te zien
+                    </p>
+                  </div>
+
+                  <BeforeAfterSlider
+                    before={{
+                      src: "/images/boat_washed_after.jpg",
+                      alt: "Boot na polijsten",
+                    }}
+                    after={{
+                      src: "/images/boat_washed_before.JPG",
+                      alt: "Boot voor polijsten",
+                    }}
+                    className="aspect-[16/9] rounded-xl shadow-xl mb-6"
+                  />
+
+                  <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+                    <Image
+                      src="/images/poloshed_boat1.jpg"
+                      alt="Gepolijst motorjacht — eindresultaat"
+                      fill
+                      className="object-cover object-center"
+                    />
+                  </div>
+                </div>
+              )}
               <div
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-start ${idx % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
               >
                 {/* Text */}
                 <div>
-                  <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-2">
+                  <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
                     {s.label}
                   </p>
-                  <h2 className="font-serif text-navy text-3xl mb-5">
+                  <h2 className="font-heading text-navy text-3xl mb-5">
                     {s.title}
                   </h2>
                   <div className="space-y-4">
@@ -196,7 +156,7 @@ export default function DienstenPage() {
                   </div>
                   <Link
                     href={s.ctaHref}
-                    className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 bg-bronze text-navy font-semibold text-sm rounded hover:bg-bronze-light transition-colors"
+                    className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 bg-navy text-white font-semibold text-sm rounded hover:bg-navy-light transition-colors"
                   >
                     {s.cta}
                   </Link>
@@ -204,8 +164,8 @@ export default function DienstenPage() {
 
                 {/* Highlights + pricing */}
                 <div className="space-y-5">
-                  <div className="bg-sand border border-navy/10 rounded-lg p-6">
-                    <h3 className="text-bronze text-xs font-mono uppercase tracking-widest mb-4">
+                  <div className="bg-white border border-navy/10 rounded-lg p-6">
+                    <h3 className="text-azure text-xs font-mono uppercase tracking-widest mb-4">
                       Inbegrepen
                     </h3>
                     <ul className="space-y-2.5">
@@ -216,7 +176,7 @@ export default function DienstenPage() {
                         >
                           <svg
                             viewBox="0 0 20 20"
-                            className="w-4 h-4 text-bronze shrink-0 mt-0.5"
+                            className="w-4 h-4 text-azure shrink-0 mt-0.5"
                             fill="currentColor"
                           >
                             <path
@@ -232,23 +192,23 @@ export default function DienstenPage() {
                   </div>
 
                   <div className="bg-navy rounded-lg p-6">
-                    <h3 className="text-bronze text-xs font-mono uppercase tracking-widest mb-4">
+                    <h3 className="text-azure-light text-xs font-mono uppercase tracking-widest mb-4">
                       Indicatieve tarieven
                     </h3>
-                    <dl className="divide-y divide-cream/10">
+                    <dl className="divide-y divide-white/10">
                       {s.pricing.map(({ label, from }) => (
                         <div
                           key={label}
                           className="flex justify-between py-2.5 text-sm"
                         >
-                          <dt className="text-cream/70">{label}</dt>
-                          <dd className="text-cream font-medium">
+                          <dt className="text-white/70">{label}</dt>
+                          <dd className="text-white font-medium">
                             v.a. {from}
                           </dd>
                         </div>
                       ))}
                     </dl>
-                    <p className="text-cream/30 text-xs mt-4">
+                    <p className="text-white/30 text-xs mt-4">
                       Exacte prijzen op aanvraag. Neem contact op voor een
                       offerte op maat.
                     </p>
@@ -261,16 +221,16 @@ export default function DienstenPage() {
 
         {/* CTA */}
         <div className="mt-24 bg-navy rounded-lg p-10 text-center">
-          <h2 className="font-serif text-cream text-2xl mb-3">
+          <h2 className="font-heading text-white text-2xl mb-3">
             Vragen of een offerte aanvragen?
           </h2>
-          <p className="text-cream/60 mb-6 text-sm max-w-md mx-auto">
-            Wij stellen graag een aanbod op maat samen voor uw verhuur,
-            onderhoud of stalling.
+          <p className="text-white/60 mb-6 text-sm max-w-md mx-auto">
+            Wij stellen graag een aanbod op maat samen voor uw verhuur of
+            polijstbeurt.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-3 bg-bronze text-navy font-semibold rounded hover:bg-bronze-light transition-colors"
+            className="inline-block px-8 py-3 bg-white text-navy font-semibold rounded hover:bg-mist transition-colors"
           >
             Neem contact op
           </Link>

@@ -47,14 +47,14 @@ const values = [
 
 export default function OverOnsPage() {
   return (
-    <div className="bg-cream min-h-screen">
+    <div className="bg-mist min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
         {/* Header */}
         <div className="mb-16 text-center">
-          <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">
+          <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
             Wie wij zijn
           </p>
-          <h1 className="font-serif text-navy text-4xl sm:text-5xl mb-5">
+          <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-5">
             Over WielaardMarine
           </h1>
           <p className="text-ink-muted max-w-xl mx-auto leading-relaxed">
@@ -105,12 +105,12 @@ export default function OverOnsPage() {
         </div>
 
         {/* Values */}
-        <section className="mb-24">
+        {/*<section className="mb-24">
           <div className="text-center mb-10">
-            <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">
+            <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
               Onze waarden
             </p>
-            <h2 className="font-serif text-navy text-3xl">
+            <h2 className="font-heading text-navy text-3xl">
               Waar wij voor staan
             </h2>
           </div>
@@ -118,31 +118,31 @@ export default function OverOnsPage() {
             {values.map((v) => (
               <div
                 key={v.title}
-                className="bg-sand border border-navy/10 rounded-lg p-7"
+                className="bg-white border border-navy/10 rounded-lg p-7"
               >
-                <div className="w-8 h-px bg-bronze mb-4" />
-                <h3 className="font-serif text-navy text-lg mb-2">{v.title}</h3>
+                <div className="w-8 h-px bg-azure mb-4" />
+                <h3 className="font-heading text-navy text-lg mb-2">{v.title}</h3>
                 <p className="text-ink-muted text-sm leading-relaxed">
                   {v.text}
                 </p>
               </div>
             ))}
           </div>
-        </section>
+        </section>*/}
 
         {/* Timeline */}
         <section className="mb-24">
           <div className="text-center mb-10">
-            <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">
+            <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
               Geschiedenis
             </p>
-            <h2 className="font-serif text-navy text-3xl">Onze mijlpalen</h2>
+            <h2 className="font-heading text-navy text-3xl">Onze mijlpalen</h2>
           </div>
-          <div className="relative pl-6 border-l border-bronze/30 space-y-8 max-w-lg mx-auto">
+          <div className="relative pl-6 border-l border-azure/30 space-y-8 max-w-lg mx-auto">
             {milestones.map((m) => (
               <div key={m.year} className="relative">
-                <div className="absolute -left-[1.6rem] top-1 w-3 h-3 rounded-full bg-bronze" />
-                <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-1">
+                <div className="absolute -left-[1.6rem] top-1 w-3 h-3 rounded-full bg-azure" />
+                <p className="text-azure text-xs font-mono uppercase tracking-widest mb-1">
                   {m.year}
                 </p>
                 <p className="text-ink-muted text-sm">{m.text}</p>
@@ -154,15 +154,15 @@ export default function OverOnsPage() {
         {/* Location */}
         <section>
           <div className="text-center mb-10">
-            <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-3">
+            <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
               Locatie
             </p>
-            <h2 className="font-serif text-navy text-3xl">Waar u ons vindt</h2>
+            <h2 className="font-heading text-navy text-3xl">Waar u ons vindt</h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            <div className="bg-sand border border-navy/10 rounded-lg p-7 space-y-4 text-sm text-ink-muted">
+            <div className="bg-white border border-navy/10 rounded-lg p-7 space-y-4 text-sm text-ink-muted">
               <div>
-                <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-2">
+                <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
                   Adres
                 </p>
                 {/* Update this */}
@@ -174,7 +174,7 @@ export default function OverOnsPage() {
                 </p>
               </div>
               <div>
-                <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-2">
+                <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
                   Openingstijden vaarseizoen
                 </p>
                 <p>
@@ -184,7 +184,7 @@ export default function OverOnsPage() {
                 </p>
               </div>
               <div>
-                <p className="text-bronze text-xs font-mono uppercase tracking-widest mb-2">
+                <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
                   Buiten seizoen
                 </p>
                 <p>Op afspraak</p>
@@ -192,7 +192,7 @@ export default function OverOnsPage() {
               <div className="pt-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 text-bronze text-sm hover:text-bronze-dark transition-colors"
+                  className="inline-flex items-center gap-2 text-azure text-sm hover:text-azure-dark transition-colors"
                 >
                   Neem contact op
                   <svg

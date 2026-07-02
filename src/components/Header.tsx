@@ -17,7 +17,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-navy border-b border-cream/10">
+    <header className="fixed top-0 inset-x-0 z-50 bg-navy border-b border-white/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link href="/" className="group" onClick={() => setOpen(false)}>
           <Image
@@ -42,8 +42,8 @@ export function Header() {
                 className={[
                   "px-4 py-2 rounded text-sm font-medium transition-colors",
                   active
-                    ? "text-bronze bg-cream/10"
-                    : "text-cream/70 hover:text-cream hover:bg-cream/5",
+                    ? "text-azure-light bg-white/10"
+                    : "text-white/70 hover:text-white hover:bg-white/5",
                 ].join(" ")}
               >
                 {link.label}
@@ -52,7 +52,7 @@ export function Header() {
           })}
           <Link
             href="/contact"
-            className="ml-2 px-4 py-2 bg-bronze text-navy font-semibold text-sm rounded hover:bg-bronze-light transition-colors"
+            className="ml-2 px-4 py-2 bg-white text-navy font-semibold text-sm rounded hover:bg-mist transition-colors"
           >
             Reserveer
           </Link>
@@ -60,7 +60,7 @@ export function Header() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-cream/70 hover:text-cream p-1"
+          className="md:hidden text-white/70 hover:text-white p-1"
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu openen"
         >
@@ -98,7 +98,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-cream/10 bg-navy">
+        <div className="md:hidden border-t border-white/10 bg-navy">
           <nav className="flex flex-col px-4 py-3 gap-1">
             {navLinks.map((link) => {
               const active =
@@ -111,8 +111,8 @@ export function Header() {
                   className={[
                     "px-3 py-2.5 rounded text-sm font-medium transition-colors",
                     active
-                      ? "text-bronze bg-cream/10"
-                      : "text-cream/70 hover:text-cream hover:bg-cream/5",
+                      ? "text-azure-light bg-white/10"
+                      : "text-white/70 hover:text-white hover:bg-white/5",
                   ].join(" ")}
                 >
                   {link.label}
@@ -122,7 +122,7 @@ export function Header() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-1 px-3 py-2.5 bg-bronze text-navy font-semibold text-sm rounded text-center hover:bg-bronze-light transition-colors"
+              className="mt-1 px-3 py-2.5 bg-white text-navy font-semibold text-sm rounded text-center hover:bg-mist transition-colors"
             >
               Reserveer
             </Link>

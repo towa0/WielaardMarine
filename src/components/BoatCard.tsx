@@ -11,7 +11,7 @@ export function BoatCard({ boat }: BoatCardProps) {
   return (
     <Link
       href={`/vloot/${boat.slug}`}
-      className="group block bg-sand border border-navy/10 rounded-lg overflow-hidden hover:border-bronze/60 hover:shadow-md hover:shadow-navy/10 transition-all duration-300 hover:-translate-y-1"
+      className="group block bg-white border border-navy/10 rounded-lg overflow-hidden hover:border-azure/60 hover:shadow-md hover:shadow-navy/10 transition-all duration-300 hover:-translate-y-1"
     >
       {/* Image */}
       <div className="relative overflow-hidden">
@@ -36,7 +36,7 @@ export function BoatCard({ boat }: BoatCardProps) {
         )}
 
         {!boat.available && (
-          <div className="absolute top-3 right-3 bg-navy/80 text-cream text-xs font-mono uppercase tracking-wider px-2 py-1 rounded">
+          <div className="absolute top-3 right-3 bg-navy/80 text-white text-xs font-mono uppercase tracking-wider px-2 py-1 rounded">
             Niet beschikbaar
           </div>
         )}
@@ -45,10 +45,10 @@ export function BoatCard({ boat }: BoatCardProps) {
       {/* Info */}
       <div className="p-5">
         <div className="flex items-start justify-between gap-2 mb-1">
-          <h3 className="font-serif text-navy text-xl group-hover:text-bronze transition-colors">
+          <h3 className="font-heading text-navy text-xl group-hover:text-azure transition-colors">
             {boat.name}
           </h3>
-          <span className="shrink-0 text-bronze text-xs font-mono uppercase tracking-wider border border-bronze/40 rounded px-2 py-0.5 mt-1">
+          <span className="shrink-0 text-azure text-xs font-mono uppercase tracking-wider border border-azure/40 rounded px-2 py-0.5 mt-1">
             {boat.type}
           </span>
         </div>
