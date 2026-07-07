@@ -123,14 +123,7 @@ export default function DienstenPage() {
                     className="aspect-[16/9] rounded-xl shadow-xl mb-6"
                   />
 
-                  <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/poloshed_boat1.jpg"
-                      alt="Gepolijst motorjacht — eindresultaat"
-                      fill
-                      className="object-cover object-center"
-                    />
-                  </div>
+           
                 </div>
               )}
               <div

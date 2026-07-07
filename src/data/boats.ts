@@ -20,11 +20,7 @@ export interface Boat {
 }
 
 export type BoatType =
-  | "Sloep"
-  | "Motorboot"
-  | "Kajuitboot"
-  | "Zeilboot"
-  | "RIB";
+  "Sloep" | "Motorboot" | "Kajuitboot" | "Zeilboot" | "RIB";
 
 export const boats: Boat[] = [
   {
@@ -78,7 +74,7 @@ De boot is uitgerust met een betrouwbare 8 pk Yamaha 4-takt buitenboordmotor en 
 
 Hele dag (8 uur) voor €180 of halve dag (4 uur) voor €100. Reserveren of vragen? Bel of WhatsApp ons op 06 4534 5868.`,
     images: [],
-    coverImage: "/images/boattype-1_water.jpg",
+    coverImage: "/images/boottype-1_1.jpg",
     features: [
       "Biminitop voor schaduw",
       "Zonnedek om te relaxen",
@@ -100,7 +96,7 @@ Hele dag (8 uur) voor €180 of halve dag (4 uur) voor €100. Reserveren of vra
     pricePerWeek: 720,
     deposit: 250,
     featured: true,
-    available: false,
+    available: true,
     shortDescription:
       "Compacte en wendbare sloep, perfect voor koppels of kleine groepen.",
     description: `De Strandloper is onze compacte, wendbare sloep. Met 5,8 meter is hij gemakkelijk te besturen en ideaal voor smalle vaargeulen en rustige kreekjes in de Hoeksche Waard.

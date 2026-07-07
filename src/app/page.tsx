@@ -226,7 +226,7 @@ export default function HomePage() {
         </svg>
 
         <div className="relative z-10 flex flex-col items-center">
-          <span className="animate-pop-in pop-delay-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-azure/30 bg-azure/5 text-azure text-xs font-mono uppercase tracking-[0.25em] mb-8">
+          <span className="animate-pop-in pop-delay-1 inline-flex items-center gap-2 px-4 py-1.5 text-azure text-xs font-mono uppercase tracking-[0.25em] mb-8">
             Maaslaantje · Maasdam
           </span>
 
@@ -237,7 +237,7 @@ export default function HomePage() {
           <p className="animate-pop-in pop-delay-2 font-heading text-azure text-lg sm:text-xl tracking-[0.02em] mb-2">
             Bootverhuur &amp; Polijsten
           </p>
-          <div className="animate-pop-in pop-delay-2 w-10 h-0.5 bg-azure/40 rounded-full mb-6" />
+          <div className="animate-grow-line pop-delay-2 w-10 h-0.5 bg-azure/40 rounded-full mb-6" />
 
           <p className="animate-pop-in pop-delay-3 text-ink-muted text-base sm:text-lg max-w-lg leading-relaxed mb-10">
             Sloepen en motorboten huren, en uw boot weer laten glanzen —
@@ -388,6 +388,14 @@ export default function HomePage() {
       {/* ── WHY US — white bg ── */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
+          <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg mb-16">
+            <Image
+              src="/images/poloshed_boat1.jpg"
+              alt="Gepolijst motorjacht — eindresultaat"
+              fill
+              className="object-cover object-center"
+            />
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
