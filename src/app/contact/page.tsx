@@ -69,8 +69,8 @@ export default function ContactPage() {
             Contact
           </h1>
           <p className="text-ink-muted max-w-lg mx-auto leading-relaxed">
-            Reserveer een boot, vraag een offerte aan of stel ons gewoon een
-            vraag. Wij reageren binnen één werkdag.
+            Vraag een offerte aan voor polijsten, reserveer een boot, of stel
+            ons gewoon een vraag. Wij reageren binnen één werkdag.
           </p>
         </div>
 
@@ -165,10 +165,10 @@ export default function ContactPage() {
                       name="subject"
                       className="w-full bg-white border border-navy/20 rounded px-4 py-3 text-navy text-sm focus:outline-none focus:border-azure transition-colors"
                     >
-                      <option value="verhuur">Bootverhuur</option>
                       <option value="polijsten">
                         Polijsten & bootverzorging
                       </option>
+                      <option value="verhuur">Bootverhuur</option>
                       <option value="overig">Overig</option>
                     </select>
                   </div>

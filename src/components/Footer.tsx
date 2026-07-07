@@ -36,8 +36,8 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               {[
                 { href: "/", label: "Home" },
-                { href: "/vloot", label: "Vloot" },
                 { href: "/diensten", label: "Diensten" },
+                { href: "/vloot", label: "Verhuur" },
                 { href: "/over-ons", label: "Over Ons" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (

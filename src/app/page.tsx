@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { getFeaturedBoats } from "@/data/boats";
 import { BoatCard } from "@/components/BoatCard";
+import { PortfolioGallery } from "@/components/PortfolioGallery";
+import { galleryImages } from "@/data/gallery";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -39,18 +41,17 @@ const services = [
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M8 36 Q24 20, 40 36" />
-        <path d="M4 40h40" />
-        <path d="M18 36V24l6-8 6 8v12" />
-        <path d="M24 16V8" />
-        <path d="M20 10h8" />
+        <path d="M10 30 Q24 22, 38 30" />
+        <path d="M12 34 Q24 27, 36 34" />
+        <path d="M24 6l2.2 5.4L32 13l-5.8 1.6L24 20l-2.2-5.4L16 13l5.8-1.6z" />
       </svg>
     ),
-    title: "Bootverhuur",
+    title: "Polijsten & Bootverzorging",
     description:
-      "Dag- en weekverhuur van onze gevarieerde vloot. Van compacte sloepen tot ruime motorjachten — voor elk gezelschap de juiste boot.",
-    href: "/vloot",
-    cta: "Bekijk vloot",
+      "Wij verwijderen oxidatie, krassen en doffe vlekken uit lak en gelcoat. Het resultaat: een diepglanzende boot die weer beschermd is tegen weer en verkleuring.",
+    href: "/diensten#polijsten",
+    cta: "Bekijk polijstwerk",
+    accent: "amber" as const,
   },
   {
     icon: (
@@ -63,16 +64,19 @@ const services = [
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M10 30 Q24 22, 38 30" />
-        <path d="M12 34 Q24 27, 36 34" />
-        <path d="M24 6l2.2 5.4L32 13l-5.8 1.6L24 20l-2.2-5.4L16 13l5.8-1.6z" />
+        <path d="M8 36 Q24 20, 40 36" />
+        <path d="M4 40h40" />
+        <path d="M18 36V24l6-8 6 8v12" />
+        <path d="M24 16V8" />
+        <path d="M20 10h8" />
       </svg>
     ),
-    title: "Polijsten & Bootverzorging",
+    title: "Bootverhuur",
     description:
-      "Wij verwijderen oxidatie, krassen en doffe vlekken uit lak en gelcoat. Het resultaat: een diepglanzende boot die weer beschermd is tegen weer en verkleuring.",
-    href: "/diensten#polijsten",
-    cta: "Bekijk polijstwerk",
+      "Ook een leuk extraatje: dag- en weekverhuur van onze sloepen en motorboten. Voor wie na de polijstbeurt gelijk het water op wil.",
+    href: "/vloot",
+    cta: "Bekijk vloot",
+    accent: "azure" as const,
   },
 ];
 
@@ -89,7 +93,7 @@ export default function HomePage() {
           aria-hidden
         />
         <div
-          className="absolute -bottom-32 -left-24 w-[26rem] h-[26rem] rounded-full bg-navy/5 blur-3xl animate-float-slow pointer-events-none"
+          className="absolute -bottom-32 -left-24 w-[26rem] h-[26rem] rounded-full bg-amber/10 blur-3xl animate-float-slow pointer-events-none"
           style={{ animationDelay: "-3s" }}
           aria-hidden
         />
@@ -107,16 +111,21 @@ export default function HomePage() {
         {/* Rising bubbles */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           {[
-            { left: "12%", size: 8, dur: "7s", delay: "0s" },
-            { left: "22%", size: 5, dur: "9s", delay: "1.2s" },
-            { left: "78%", size: 10, dur: "8s", delay: "0.6s" },
-            { left: "88%", size: 6, dur: "6.5s", delay: "2.4s" },
-            { left: "50%", size: 6, dur: "10s", delay: "3.5s" },
-            { left: "65%", size: 4, dur: "7.5s", delay: "1.8s" },
+            { left: "12%", size: 8, dur: "7s", delay: "0s", warm: false },
+            { left: "22%", size: 5, dur: "9s", delay: "1.2s", warm: true },
+            { left: "78%", size: 10, dur: "8s", delay: "0.6s", warm: false },
+            { left: "88%", size: 6, dur: "6.5s", delay: "2.4s", warm: true },
+            { left: "50%", size: 6, dur: "10s", delay: "3.5s", warm: false },
+            { left: "65%", size: 4, dur: "7.5s", delay: "1.8s", warm: true },
           ].map((b, i) => (
             <span
               key={i}
-              className="animate-bubble absolute bottom-16 rounded-full bg-azure/30 border border-azure/40"
+              className={[
+                "animate-bubble absolute bottom-16 rounded-full border",
+                b.warm
+                  ? "bg-amber/25 border-amber/40"
+                  : "bg-azure/30 border-azure/40",
+              ].join(" ")}
               style={{
                 left: b.left,
                 width: b.size,
@@ -137,16 +146,16 @@ export default function HomePage() {
         >
           <defs>
             <linearGradient id="heroWaveBack" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#123c69" stopOpacity="0.14" />
-              <stop offset="100%" stopColor="#123c69" stopOpacity="0.03" />
+              <stop offset="0%" stopColor="#0b2947" stopOpacity="0.20" />
+              <stop offset="100%" stopColor="#0b2947" stopOpacity="0.05" />
             </linearGradient>
             <linearGradient id="heroWaveMid" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#1e79d8" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#1e79d8" stopOpacity="0.04" />
+              <stop offset="0%" stopColor="#155fae" stopOpacity="0.26" />
+              <stop offset="100%" stopColor="#155fae" stopOpacity="0.07" />
             </linearGradient>
             <linearGradient id="heroWaveFront" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#1e79d8" stopOpacity="0.32" />
-              <stop offset="100%" stopColor="#155fae" stopOpacity="0.10" />
+              <stop offset="0%" stopColor="#1e79d8" stopOpacity="0.40" />
+              <stop offset="100%" stopColor="#123c69" stopOpacity="0.18" />
             </linearGradient>
           </defs>
 
@@ -225,6 +234,53 @@ export default function HomePage() {
           </path>
         </svg>
 
+        {/* Drifting sailboat, bobbing slowly across the horizon */}
+        <svg
+          viewBox="0 0 64 48"
+          className="absolute left-0 w-16 sm:w-20 lg:w-24 bottom-36 sm:bottom-44 lg:bottom-52 animate-drift-boat pointer-events-none drop-shadow-md"
+          aria-hidden
+        >
+          <path d="M8 34 Q32 42 56 34 L50 34 L14 34 Z" fill="#123c69" />
+          <line
+            x1="32"
+            y1="32"
+            x2="32"
+            y2="8"
+            stroke="#123c69"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+          <path d="M32 10 L48 32 L32 32 Z" fill="#f2a134" />
+        </svg>
+
+        {/* Twinkling sunlight glints on the water */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          {[
+            { left: "14%", bottom: "16%", delay: "0s", warm: true },
+            { left: "26%", bottom: "24%", delay: "0.9s", warm: false },
+            { left: "40%", bottom: "12%", delay: "1.7s", warm: true },
+            { left: "58%", bottom: "20%", delay: "0.4s", warm: false },
+            { left: "68%", bottom: "10%", delay: "2.3s", warm: true },
+            { left: "80%", bottom: "22%", delay: "1.2s", warm: false },
+            { left: "88%", bottom: "14%", delay: "1.9s", warm: true },
+          ].map((s, i) => (
+            <span
+              key={i}
+              className={[
+                "animate-twinkle rotate-45 absolute w-2.5 h-2.5 rounded-[3px]",
+                s.warm
+                  ? "bg-amber-light shadow-[0_0_10px_2px_rgba(242,161,52,0.7)]"
+                  : "bg-white shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]",
+              ].join(" ")}
+              style={{
+                left: s.left,
+                bottom: s.bottom,
+                animationDelay: s.delay,
+              }}
+            />
+          ))}
+        </div>
+
         <div className="relative z-10 flex flex-col items-center">
           <span className="animate-pop-in pop-delay-1 inline-flex items-center gap-2 px-4 py-1.5 text-azure text-xs font-mono uppercase tracking-[0.25em] mb-8">
             Maaslaantje · Maasdam
@@ -235,27 +291,28 @@ export default function HomePage() {
           </h1>
 
           <p className="animate-pop-in pop-delay-2 font-heading text-azure text-lg sm:text-xl tracking-[0.02em] mb-2">
-            Bootverhuur &amp; Polijsten
+            Polijsten &amp; Bootverzorging
           </p>
           <div className="animate-grow-line pop-delay-2 w-10 h-0.5 bg-azure/40 rounded-full mb-6" />
 
           <p className="animate-pop-in pop-delay-3 text-ink-muted text-base sm:text-lg max-w-lg leading-relaxed mb-10">
-            Sloepen en motorboten huren, en uw boot weer laten glanzen —
-            verzorgd aan de Maaslaantje in Maasdam.
+            Wij laten uw boot weer glanzen als nieuw — en wie zelf het water op
+            wil, huurt bij ons ook een sloep of motorboot. Verzorgd aan de
+            Maaslaantje in Maasdam.
           </p>
 
           <div className="animate-pop-in pop-delay-4 flex flex-col sm:flex-row gap-4">
             <Link
-              href="/vloot"
+              href="/diensten#polijsten"
               className="px-8 py-3.5 bg-navy text-white font-semibold rounded hover:bg-navy-light transition-colors"
             >
-              Bekijk onze vloot
+              Bekijk ons polijstwerk
             </Link>
             <Link
               href="/contact"
               className="px-8 py-3.5 border border-navy/20 text-navy rounded hover:border-navy hover:bg-navy/5 transition-colors"
             >
-              Neem contact op
+              Offerte aanvragen
             </Link>
           </div>
         </div>
@@ -290,9 +347,18 @@ export default function HomePage() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="bg-navy-light border border-white/10 rounded-lg p-7 flex flex-col"
+                className="group bg-navy-light border border-white/10 rounded-lg p-7 flex flex-col hover:-translate-y-1 hover:border-white/20 transition-all duration-300"
               >
-                <div className="text-azure-light mb-5">{service.icon}</div>
+                <div
+                  className={[
+                    "w-16 h-16 rounded-full flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110",
+                    service.accent === "amber"
+                      ? "bg-amber/15 text-amber-light"
+                      : "bg-azure/15 text-azure-light",
+                  ].join(" ")}
+                >
+                  {service.icon}
+                </div>
                 <h3 className="font-heading text-white text-xl mb-3">
                   {service.title}
                 </h3>
@@ -301,7 +367,12 @@ export default function HomePage() {
                 </p>
                 <Link
                   href={service.href}
-                  className="self-start text-azure-light text-sm font-medium hover:text-white transition-colors inline-flex items-center gap-1.5"
+                  className={[
+                    "self-start text-sm font-medium hover:text-white transition-colors inline-flex items-center gap-1.5",
+                    service.accent === "amber"
+                      ? "text-amber-light"
+                      : "text-azure-light",
+                  ].join(" ")}
                 >
                   {service.cta}
                   <svg
@@ -320,19 +391,142 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FEATURED BOATS — mist bg ── */}
+      {/* ── PORTFOLIO GALLERY — mist bg ── */}
       <section className="py-20 px-4 bg-mist">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center">
             <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
-              Onze vloot
+              Ons werk
             </p>
             <h2 className="font-heading text-navy text-3xl sm:text-4xl mb-4">
-              Kies uw boot
+              Voorbeelden van ons polijstwerk
             </h2>
             <p className="text-ink-muted max-w-lg mx-auto">
-              Van compacte dagsloep tot ruim motorjacht — elk gezelschap vindt
-              bij ons de juiste boot.
+              Een greep uit eerdere behandelingen — van lichte opfrisbeurt tot
+              volledige glansrestauratie.
+            </p>
+          </div>
+
+          <PortfolioGallery images={galleryImages.slice(0, 9)} />
+
+          {/* Zodra er genoeg foto's zijn uncomment dit voor echte preview*/}
+          {/*<div className="text-center mt-10">
+            <Link
+              href="/diensten#polijsten"
+              className="inline-flex items-center gap-2 text-azure hover:text-azure-dark transition-colors text-sm font-medium"
+            >
+              Bekijk meer voorbeelden
+              <svg
+                viewBox="0 0 24 24"
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>*/}
+        </div>
+      </section>
+
+      {/* ── WHY US — white bg ── */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          {/*<div className="relative aspect-video rounded-xl overflow-hidden shadow-lg mb-16">
+            <Image
+              src="/images/poloshed_boat1.jpg"
+              alt="Gepolijst motorjacht — eindresultaat"
+              fill
+              className="object-cover object-center"
+            />
+          </div>*/}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
+                Waarom WielaardMarine
+              </p>
+              <h2 className="font-heading text-navy text-3xl sm:text-4xl mb-6">
+                Uw boot in topconditie,
+                <br />
+                verzorgd met precisie
+              </h2>
+              <p className="text-ink-muted leading-relaxed mb-6">
+                WielaardMarine is opgericht door Julian Wielaard vanuit een
+                echte passie voor het water. Van polijsten en bootverzorging tot
+                heerlijk varen, kwaliteit en tevreden klanten staan bij ons
+                centraal.
+              </p>
+              <ul className="space-y-3 text-sm">
+                {[
+                  "Handmatig polijstwerk, oog voor detail",
+                  "Op maat: van opfrisbeurt tot volledige restauratie",
+                  "Bescherming tegen weer, vuil en verkleuring",
+                  "Ook onze boten jaarlijks onderhouden en APK gekeurd",
+                  "Persoonlijk advies, geen callcenter",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-ink-muted"
+                  >
+                    <svg
+                      viewBox="0 0 20 20"
+                      className="w-5 h-5 text-azure shrink-0 mt-0.5"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/over-ons"
+                className="inline-flex items-center gap-2 mt-8 text-azure hover:text-azure-dark transition-colors text-sm font-medium"
+              >
+                Meer over ons
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+
+            <div className="hidden lg:block relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/boat_steeringwheel.JPG"
+                alt="Stuurwiel op de Binnenmaas"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-navy/20" aria-hidden />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED BOATS — extra dienst, mist bg ── */}
+      <section className="py-20 px-4 bg-mist">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12 text-center">
+            <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
+              Ook mogelijk
+            </p>
+            <h2 className="font-heading text-navy text-3xl sm:text-4xl mb-4">
+              Zin om zelf te varen? Huur een boot
+            </h2>
+            <p className="text-ink-muted max-w-lg mx-auto">
+              Naast polijsten bieden wij ook dag- en weekverhuur — van compacte
+              dagsloep tot ruim motorjacht.
             </p>
           </div>
 
@@ -385,105 +579,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── WHY US — white bg ── */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg mb-16">
-            <Image
-              src="/images/poloshed_boat1.jpg"
-              alt="Gepolijst motorjacht — eindresultaat"
-              fill
-              className="object-cover object-center"
-            />
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
-                Waarom WielaardMarine
-              </p>
-              <h2 className="font-heading text-navy text-3xl sm:text-4xl mb-6">
-                Varen zonder zorgen,
-                <br />
-                genieten met vertrouwen
-              </h2>
-              <p className="text-ink-muted leading-relaxed mb-6">
-                WielaardMarine is opgericht door Julian Wielaard vanuit een
-                echte passie voor het water. Van bootverzorging en polijsten tot
-                heerlijk varen, kwaliteit en tevreden klanten staan bij ons
-                centraal.
-              </p>
-              <ul className="space-y-3 text-sm">
-                {[
-                  "Boten jaarlijks onderhouden en APK gekeurd",
-                  "Grondige introductie voor elke huurder",
-                  "Geen vaarbewijs nodig voor onze sloepen",
-                  "Veiligheidspakket standaard aan boord",
-                  "Telefonische hulp tijdens uw vaartocht",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-ink-muted"
-                  >
-                    <svg
-                      viewBox="0 0 20 20"
-                      className="w-5 h-5 text-azure shrink-0 mt-0.5"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/over-ons"
-                className="inline-flex items-center gap-2 mt-8 text-azure hover:text-azure-dark transition-colors text-sm font-medium"
-              >
-                Meer over ons
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-
-            <div className="hidden lg:block relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/boat_steeringwheel.JPG"
-                alt="Stuurwiel op de Binnenmaas"
-                fill
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-navy/20" aria-hidden />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA BANNER — azure ── */}
       <section className="py-16 px-4 bg-azure">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-heading text-white text-3xl sm:text-4xl mb-4">
-            Klaar om te varen?
+            Klaar voor een stralende boot?
           </h2>
           <p className="text-white/80 mb-8 text-lg">
-            Reserveer vandaag nog uw boot — wij plannen graag samen met u.
+            Vraag vandaag nog een offerte aan voor polijsten — of reserveer
+            gelijk een boot.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="px-8 py-3.5 bg-navy text-white font-semibold rounded hover:bg-navy-dark transition-colors"
             >
-              Maak een reservering
+              Offerte aanvragen
             </Link>
             <a
               href="tel:++31645345868"

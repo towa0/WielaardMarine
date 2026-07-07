@@ -6,8 +6,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/vloot", label: "Vloot" },
   { href: "/diensten", label: "Diensten" },
+  { href: "/vloot", label: "Verhuur" },
   { href: "/over-ons", label: "Over Ons" },
   { href: "/contact", label: "Contact" },
 ];
@@ -92,7 +92,7 @@ export function Header() {
                 : "bg-navy text-white hover:bg-navy-light",
             ].join(" ")}
           >
-            Reserveer
+            Offerte aanvragen
           </Link>
         </nav>
 
@@ -167,7 +167,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="mt-1 px-3 py-2.5 bg-white text-navy font-semibold text-sm rounded text-center hover:bg-mist transition-colors"
             >
-              Reserveer
+              Offerte aanvragen
             </Link>
           </nav>
         </div>

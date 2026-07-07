@@ -5,7 +5,7 @@ import { BoatCard } from '@/components/BoatCard'
 export const metadata: Metadata = {
   title: 'Vloot',
   description:
-    'Bekijk onze volledige vloot: sloepen, motorjachten en kajuitboten te huur op de Binnenmaas in de Hoeksche Waard. Dag- en weekverhuur, honden welkom.',
+    'Naast bootverzorging en polijsten bieden wij ook boten te huur aan: sloepen, motorjachten en kajuitboten op de Binnenmaas in de Hoeksche Waard. Dag- en weekverhuur, honden welkom.',
   alternates: { canonical: '/vloot' },
 }
 
@@ -24,10 +24,11 @@ export default function VlootPage() {
 
         {/* Page header */}
         <div className="mb-14 text-center">
-          <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">Beschikbare boten</p>
-          <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-5">Onze vloot</h1>
+          <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">Ook mogelijk naast polijsten</p>
+          <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-5">Onze vloot te huur</h1>
           <p className="text-ink-muted max-w-xl mx-auto leading-relaxed">
-            Kies de boot die bij uw plannen past. Twijfelt u? Bel ons — wij helpen u graag de juiste keuze maken.
+            Naast bootverzorging bieden wij ook onze boten te huur aan. Kies de boot die bij uw plannen past —
+            twijfelt u? Bel ons, wij helpen u graag de juiste keuze maken.
           </p>
         </div>
 

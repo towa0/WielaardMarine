@@ -2,41 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { PortfolioGallery } from "@/components/PortfolioGallery";
+import { galleryImages } from "@/data/gallery";
 
 export const metadata: Metadata = {
   title: "Diensten",
   description:
-    "WielaardMarine biedt bootverhuur en professioneel polijsten & bootverzorging aan de Binnenmaas in de Hoeksche Waard.",
+    "WielaardMarine biedt professioneel polijsten & bootverzorging, en daarnaast ook bootverhuur, aan de Binnenmaas in de Hoeksche Waard.",
   alternates: { canonical: "/diensten" },
 };
 
 const services = [
-  {
-    id: "verhuur",
-    label: "Bootverhuur",
-    title: "Dag- en weekverhuur",
-    description: `Huur een van onze boten voor een halve dag, een hele dag of een hele week. Onze vloot bestaat uit open sloepen, motorjachten en kajuitboten — geschikt voor gezinnen, groepen en koppels.
-
-Sloepen tot en met 15 pk mogen zonder vaarbewijs worden gevaren. Voor grotere boten is een CWO-vaarbewijs vereist. Geen vaarbewijs maar wel zin om te varen? Wij regelen desgewenst een schipper.
-
-Alle boten worden schoongemaakt afgeleverd, zijn voorzien van een volledig veiligheidspakket en worden grondig aan u uitgelegd voor vertrek.`,
-    highlights: [
-      "Halfdag, dagverhuur en weekverhuur",
-      "Sloepen zonder vaarbewijs",
-      "Schipper beschikbaar op aanvraag",
-      "Veiligheidspakket standaard inbegrepen",
-      "Grondige introductie bij elke verhuur",
-      "Honden welkom",
-    ],
-    pricing: [
-      { label: "Sloep — halve dag", from: "€ 90" },
-      { label: "Sloep — hele dag", from: "€ 145" },
-      { label: "Sloep — week", from: "€ 720" },
-      { label: "Motorjacht — dag", from: "€ 295" },
-    ],
-    cta: "Bekijk onze vloot",
-    ctaHref: "/vloot",
-  },
   {
     id: "polijsten",
     label: "Polijsten & Bootverzorging",
@@ -60,6 +36,32 @@ Elke behandeling wordt met de hand uitgevoerd en afgestemd op de staat van uw bo
     cta: "Offerte aanvragen",
     ctaHref: "/contact",
   },
+  {
+    id: "verhuur",
+    label: "Bootverhuur",
+    title: "Ook mogelijk: dag- en weekverhuur",
+    description: `Naast bootverzorging bieden wij ook onze boten te huur aan — voor een halve dag, een hele dag of een hele week. Onze vloot bestaat uit open sloepen, motorjachten en kajuitboten — geschikt voor gezinnen, groepen en koppels.
+
+Sloepen tot en met 15 pk mogen zonder vaarbewijs worden gevaren. Voor grotere boten is een CWO-vaarbewijs vereist. Geen vaarbewijs maar wel zin om te varen? Wij regelen desgewenst een schipper.
+
+Alle boten worden schoongemaakt afgeleverd, zijn voorzien van een volledig veiligheidspakket en worden grondig aan u uitgelegd voor vertrek.`,
+    highlights: [
+      "Halfdag, dagverhuur en weekverhuur",
+      "Sloepen zonder vaarbewijs",
+      "Schipper beschikbaar op aanvraag",
+      "Veiligheidspakket standaard inbegrepen",
+      "Grondige introductie bij elke verhuur",
+      "Honden welkom",
+    ],
+    pricing: [
+      { label: "Sloep — halve dag", from: "€ 90" },
+      { label: "Sloep — hele dag", from: "€ 145" },
+      { label: "Sloep — week", from: "€ 720" },
+      { label: "Motorjacht — dag", from: "€ 295" },
+    ],
+    cta: "Bekijk onze vloot",
+    ctaHref: "/vloot",
+  },
 ];
 
 export default function DienstenPage() {
@@ -75,7 +77,7 @@ export default function DienstenPage() {
             Onze diensten
           </h1>
           <p className="text-ink-muted max-w-xl mx-auto leading-relaxed">
-            Van recreatieve verhuur tot vakkundig polijsten en bootverzorging
+            Van vakkundig polijsten en bootverzorging tot recreatieve verhuur
             — WielaardMarine is uw partner aan de Binnenmaas.
           </p>
         </div>
@@ -122,8 +124,19 @@ export default function DienstenPage() {
                     }}
                     className="aspect-[16/9] rounded-xl shadow-xl mb-6"
                   />
-
-           
+                </div>
+              )}
+              {s.id === "polijsten" && (
+                <div className="mb-14">
+                  <div className="text-center mb-8">
+                    <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
+                      Ons werk
+                    </p>
+                    <h3 className="font-heading text-navy text-2xl mb-2">
+                      Voorbeelden van eerdere behandelingen
+                    </h3>
+                  </div>
+                  <PortfolioGallery images={galleryImages} />
                 </div>
               )}
               <div

@@ -20,10 +20,11 @@ export const metadata: Metadata = {
   description:
     'Professioneel bootverzorging en polijsten door Julian Wielaard. Bootverhuur aan de Binnenmaas in de Hoeksche Waard. Geen vaarbewijs vereist voor onze sloepen.',
   keywords: [
-    'bootverhuur binnenmaas',
-    'sloep huren hoeksche waard',
     'boot polijsten',
     'bootverzorging hoeksche waard',
+    'boot polijsten binnenmaas',
+    'bootverhuur binnenmaas',
+    'sloep huren hoeksche waard',
     'sloep huren rotterdam omgeving',
     'varen binnenmaas',
     'wielaard marine',

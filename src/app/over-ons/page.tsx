@@ -87,9 +87,9 @@ export default function OverOnsPage() {
               in goede staat blijft en beter zijn waarde behoudt.
             </p>
             <p>
-              Naast bootverzorging biedt WielaardMarine ook bootverhuur aan op
-              de Binnenmaas. Geniet van een heerlijke ontspannen dag op het
-              water in de Hoeksche Waard.
+              Als leuke extra biedt WielaardMarine ook bootverhuur aan op de
+              Binnenmaas. Zo kunt u na de polijstbeurt gelijk genieten van een
+              heerlijke ontspannen dag op het water in de Hoeksche Waard.
             </p>
           </div>
 
