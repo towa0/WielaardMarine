@@ -87,56 +87,6 @@ export default function HomePage() {
     <>
       {/* ── HERO — light, airy, minimal ── */}
       <section className="relative min-h-[92vh] bg-white flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-        {/* Soft floating gradient blobs */}
-        <div
-          className="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-azure/10 blur-3xl animate-float-slow pointer-events-none"
-          aria-hidden
-        />
-        <div
-          className="absolute -bottom-32 -left-24 w-[26rem] h-[26rem] rounded-full bg-amber/10 blur-3xl animate-float-slow pointer-events-none"
-          style={{ animationDelay: "-3s" }}
-          aria-hidden
-        />
-
-        {/* Sonar ripple rings, radiating from behind the headline */}
-        <div
-          className="absolute top-[42%] left-1/2 w-px h-px pointer-events-none"
-          aria-hidden
-        >
-          <span className="animate-ripple ripple-delay-1 w-[20rem] h-[20rem] sm:w-[26rem] sm:h-[26rem]" />
-          <span className="animate-ripple ripple-delay-2 w-[20rem] h-[20rem] sm:w-[26rem] sm:h-[26rem]" />
-          <span className="animate-ripple ripple-delay-3 w-[20rem] h-[20rem] sm:w-[26rem] sm:h-[26rem]" />
-        </div>
-
-        {/* Rising bubbles */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          {[
-            { left: "12%", size: 8, dur: "7s", delay: "0s", warm: false },
-            { left: "22%", size: 5, dur: "9s", delay: "1.2s", warm: true },
-            { left: "78%", size: 10, dur: "8s", delay: "0.6s", warm: false },
-            { left: "88%", size: 6, dur: "6.5s", delay: "2.4s", warm: true },
-            { left: "50%", size: 6, dur: "10s", delay: "3.5s", warm: false },
-            { left: "65%", size: 4, dur: "7.5s", delay: "1.8s", warm: true },
-          ].map((b, i) => (
-            <span
-              key={i}
-              className={[
-                "animate-bubble absolute bottom-16 rounded-full border",
-                b.warm
-                  ? "bg-amber/25 border-amber/40"
-                  : "bg-azure/30 border-azure/40",
-              ].join(" ")}
-              style={{
-                left: b.left,
-                width: b.size,
-                height: b.size,
-                animationDuration: b.dur,
-                animationDelay: b.delay,
-              }}
-            />
-          ))}
-        </div>
-
         {/* Filled, undulating wave — bottom of hero */}
         <svg
           viewBox="0 0 1440 320"
@@ -197,89 +147,19 @@ export default function HomePage() {
           <path fill="url(#heroWaveFront)">
             <animate
               attributeName="d"
-              dur="7s"
+              dur="11s"
               repeatCount="indefinite"
               calcMode="spline"
               keyTimes="0;0.5;1"
               keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
               values={[
                 "M0,265 C240,220 480,300 720,260 C960,220 1200,300 1440,260 L1440,320 L0,320 Z",
-                "M0,285 C240,330 480,250 720,290 C960,330 1200,245 1440,285 L1440,320 L0,320 Z",
+                "M0,280 C240,315 480,255 720,285 C960,315 1200,250 1440,280 L1440,320 L0,320 Z",
                 "M0,265 C240,220 480,300 720,260 C960,220 1200,300 1440,260 L1440,320 L0,320 Z",
               ].join(";")}
             />
           </path>
-
-          {/* Crest highlight on the front wave, for a bit of shine */}
-          <path
-            fill="none"
-            stroke="#ffffff"
-            strokeOpacity="0.4"
-            strokeWidth="3"
-            strokeLinecap="round"
-          >
-            <animate
-              attributeName="d"
-              dur="7s"
-              repeatCount="indefinite"
-              calcMode="spline"
-              keyTimes="0;0.5;1"
-              keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
-              values={[
-                "M0,265 C240,220 480,300 720,260 C960,220 1200,300 1440,260",
-                "M0,285 C240,330 480,250 720,290 C960,330 1200,245 1440,285",
-                "M0,265 C240,220 480,300 720,260 C960,220 1200,300 1440,260",
-              ].join(";")}
-            />
-          </path>
         </svg>
-
-        {/* Drifting sailboat, bobbing slowly across the horizon */}
-        <svg
-          viewBox="0 0 64 48"
-          className="absolute left-0 w-16 sm:w-20 lg:w-24 bottom-36 sm:bottom-44 lg:bottom-52 animate-drift-boat pointer-events-none drop-shadow-md"
-          aria-hidden
-        >
-          <path d="M8 34 Q32 42 56 34 L50 34 L14 34 Z" fill="#123c69" />
-          <line
-            x1="32"
-            y1="32"
-            x2="32"
-            y2="8"
-            stroke="#123c69"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          <path d="M32 10 L48 32 L32 32 Z" fill="#f2a134" />
-        </svg>
-
-        {/* Twinkling sunlight glints on the water */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          {[
-            { left: "14%", bottom: "16%", delay: "0s", warm: true },
-            { left: "26%", bottom: "24%", delay: "0.9s", warm: false },
-            { left: "40%", bottom: "12%", delay: "1.7s", warm: true },
-            { left: "58%", bottom: "20%", delay: "0.4s", warm: false },
-            { left: "68%", bottom: "10%", delay: "2.3s", warm: true },
-            { left: "80%", bottom: "22%", delay: "1.2s", warm: false },
-            { left: "88%", bottom: "14%", delay: "1.9s", warm: true },
-          ].map((s, i) => (
-            <span
-              key={i}
-              className={[
-                "animate-twinkle rotate-45 absolute w-2.5 h-2.5 rounded-[3px]",
-                s.warm
-                  ? "bg-amber-light shadow-[0_0_10px_2px_rgba(242,161,52,0.7)]"
-                  : "bg-white shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]",
-              ].join(" ")}
-              style={{
-                left: s.left,
-                bottom: s.bottom,
-                animationDelay: s.delay,
-              }}
-            />
-          ))}
-        </div>
 
         <div className="relative z-10 flex flex-col items-center">
           <span className="animate-pop-in pop-delay-1 inline-flex items-center gap-2 px-4 py-1.5 text-azure text-xs font-mono uppercase tracking-[0.25em] mb-8">
