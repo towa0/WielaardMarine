@@ -77,8 +77,8 @@ export default function DienstenPage() {
             Onze diensten
           </h1>
           <p className="text-ink-muted max-w-xl mx-auto leading-relaxed">
-            Van vakkundig polijsten en bootverzorging tot recreatieve verhuur
-            — WielaardMarine is uw partner aan de Binnenmaas.
+            Van vakkundig polijsten en bootverzorging tot recreatieve verhuur —
+            WielaardMarine is uw partner aan de Binnenmaas.
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export default function DienstenPage() {
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-start ${idx % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
               >
                 {/* Text */}
-                <div>
+                <div className={s.id === "verhuur" ? "lg:col-span-2" : ""}>
                   <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
                     {s.label}
                   </p>
@@ -169,57 +169,59 @@ export default function DienstenPage() {
                 </div>
 
                 {/* Highlights + pricing */}
-                <div className="space-y-5">
-                  <div className="bg-white border border-navy/10 rounded-lg p-6">
-                    <h3 className="text-azure text-xs font-mono uppercase tracking-widest mb-4">
-                      Inbegrepen
-                    </h3>
-                    <ul className="space-y-2.5">
-                      {s.highlights.map((h) => (
-                        <li
-                          key={h}
-                          className="flex items-start gap-3 text-sm text-ink-muted"
-                        >
-                          <svg
-                            viewBox="0 0 20 20"
-                            className="w-4 h-4 text-azure shrink-0 mt-0.5"
-                            fill="currentColor"
+                {s.id !== "verhuur" && (
+                  <div className="space-y-5">
+                    <div className="bg-white border border-navy/10 rounded-lg p-6">
+                      <h3 className="text-azure text-xs font-mono uppercase tracking-widest mb-4">
+                        Inbegrepen
+                      </h3>
+                      <ul className="space-y-2.5">
+                        {s.highlights.map((h) => (
+                          <li
+                            key={h}
+                            className="flex items-start gap-3 text-sm text-ink-muted"
                           >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                            <svg
+                              viewBox="0 0 20 20"
+                              className="w-4 h-4 text-azure shrink-0 mt-0.5"
+                              fill="currentColor"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            {h}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <div className="bg-navy rounded-lg p-6">
-                    <h3 className="text-azure-light text-xs font-mono uppercase tracking-widest mb-4">
-                      Indicatieve tarieven
-                    </h3>
-                    <dl className="divide-y divide-white/10">
-                      {s.pricing.map(({ label, from }) => (
-                        <div
-                          key={label}
-                          className="flex justify-between py-2.5 text-sm"
-                        >
-                          <dt className="text-white/70">{label}</dt>
-                          <dd className="text-white font-medium">
-                            v.a. {from}
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
-                    <p className="text-white/30 text-xs mt-4">
-                      Exacte prijzen op aanvraag. Neem contact op voor een
-                      offerte op maat.
-                    </p>
+                    <div className="bg-navy rounded-lg p-6">
+                      <h3 className="text-azure-light text-xs font-mono uppercase tracking-widest mb-4">
+                        Indicatieve tarieven
+                      </h3>
+                      <dl className="divide-y divide-white/10">
+                        {s.pricing.map(({ label, from }) => (
+                          <div
+                            key={label}
+                            className="flex justify-between py-2.5 text-sm"
+                          >
+                            <dt className="text-white/70">{label}</dt>
+                            <dd className="text-white font-medium">
+                              v.a. {from}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                      <p className="text-white/30 text-xs mt-4">
+                        Exacte prijzen op aanvraag. Neem contact op voor een
+                        offerte op maat.
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </section>
           ))}

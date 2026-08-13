@@ -88,6 +88,12 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/30">
           <p>© {year} WielaardMarine. Alle rechten voorbehouden.</p>
+          <Link
+            href="/privacyverklaring"
+            className="hover:text-white/60 transition-colors"
+          >
+            Privacyverklaring
+          </Link>
           {/*<span>KvK: 12345678</span>*/}
         </div>
       </div>

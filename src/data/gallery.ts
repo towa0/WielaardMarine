@@ -7,10 +7,6 @@ export interface GalleryImage {
   src?: string; // e.g. '/images/gallery/polijsten-01.jpg' — leave empty for a placeholder tile
 }
 
-// Voorbeelden van polijstwerk. Zodra de echte foto's in /public/images/gallery
-// staan, zet je ze in `public/images/gallery/` en haal je het commentaar bij
-// `src:` weg (en pas het pad aan naar de echte bestandsnaam). Zonder `src`
-// toont het component een placeholder-tegel.
 export const galleryImages: GalleryImage[] = [
   {
     id: "1",
@@ -45,11 +41,11 @@ export const galleryImages: GalleryImage[] = [
     span: "wide",
     src: "/images/grid_img-6.JPG",
   },
-  {
-    id: "7",
-    alt: "Dekwerk gereinigd",
-    src: "/images/grid_img-7.jpg",
-  },
+  // {
+  //   id: "7",
+  //   alt: "Dekwerk gereinigd",
+  //   src: "/images/grid_img-7.jpg",
+  // },
   {
     id: "8",
     alt: "Volledige restauratie",

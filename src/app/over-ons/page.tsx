@@ -64,7 +64,7 @@ export default function OverOnsPage() {
         </div>
 
         {/* Story + team photo */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 mb-24 items-center">
+        <div className=" gap-14 mb-24 items-center">
           <div className="space-y-5 text-ink-muted leading-relaxed">
             <p>
               Mijn naam is Julian Wielaard en van jongs af aan ben ik al veel op
@@ -93,7 +93,7 @@ export default function OverOnsPage() {
             </p>
           </div>
 
-          <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-xl">
+          {/* <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-xl">
             <Image
               src="/images/about-wielaardmarine.JPG"
               alt="Julian Wielaard — WielaardMarine"
@@ -101,7 +101,7 @@ export default function OverOnsPage() {
               className="object-cover object-center"
               style={{ imageOrientation: "from-image" } as React.CSSProperties}
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Values */}
@@ -157,7 +157,9 @@ export default function OverOnsPage() {
             <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
               Locatie
             </p>
-            <h2 className="font-heading text-navy text-3xl">Waar u ons vindt</h2>
+            <h2 className="font-heading text-navy text-3xl">
+              Waar u ons vindt
+            </h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             <div className="bg-white border border-navy/10 rounded-lg p-7 space-y-4 text-sm text-ink-muted">
@@ -165,12 +167,13 @@ export default function OverOnsPage() {
                 <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
                   Adres
                 </p>
-                {/* Update this */}
+
                 <p>
-                  Havenweg 1<br />
-                  3281 XX Numansdorp
+                  Maaslaantje 9
                   <br />
-                  Hoeksche Waard
+                  3299 AM Maasdam
+                  <br />
+                  Havenweg 1
                 </p>
               </div>
               <div>

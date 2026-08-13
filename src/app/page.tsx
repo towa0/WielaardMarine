@@ -85,9 +85,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── HERO — light, airy, minimal ── */}
       <section className="relative min-h-[92vh] bg-white flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-        {/* Filled, undulating wave — bottom of hero */}
         <svg
           viewBox="0 0 1440 320"
           preserveAspectRatio="none"
@@ -96,16 +94,16 @@ export default function HomePage() {
         >
           <defs>
             <linearGradient id="heroWaveBack" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0b2947" stopOpacity="0.20" />
-              <stop offset="100%" stopColor="#0b2947" stopOpacity="0.05" />
+              <stop offset="0%" stopColor="#0b2947" stopOpacity="0.10" />
+              <stop offset="100%" stopColor="#0b2947" stopOpacity="0.03" />
             </linearGradient>
             <linearGradient id="heroWaveMid" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#155fae" stopOpacity="0.26" />
-              <stop offset="100%" stopColor="#155fae" stopOpacity="0.07" />
+              <stop offset="0%" stopColor="#155fae" stopOpacity="0.14" />
+              <stop offset="100%" stopColor="#155fae" stopOpacity="0.04" />
             </linearGradient>
             <linearGradient id="heroWaveFront" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#1e79d8" stopOpacity="0.40" />
-              <stop offset="100%" stopColor="#123c69" stopOpacity="0.18" />
+              <stop offset="0%" stopColor="#1e79d8" stopOpacity="0.22" />
+              <stop offset="100%" stopColor="#123c69" stopOpacity="0.10" />
             </linearGradient>
           </defs>
 
@@ -113,15 +111,15 @@ export default function HomePage() {
           <path fill="url(#heroWaveBack)">
             <animate
               attributeName="d"
-              dur="14s"
+              dur="20s"
               repeatCount="indefinite"
               calcMode="spline"
               keyTimes="0;0.5;1"
               keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
               values={[
-                "M0,190 C240,250 480,130 720,170 C960,210 1200,110 1440,160 L1440,320 L0,320 Z",
-                "M0,150 C240,100 480,230 720,180 C960,130 1200,240 1440,190 L1440,320 L0,320 Z",
-                "M0,190 C240,250 480,130 720,170 C960,210 1200,110 1440,160 L1440,320 L0,320 Z",
+                "M0,175 C240,185 480,160 720,170 C960,180 1200,158 1440,168 L1440,320 L0,320 Z",
+                "M0,165 C240,155 480,180 720,168 C960,158 1200,182 1440,172 L1440,320 L0,320 Z",
+                "M0,175 C240,185 480,160 720,170 C960,180 1200,158 1440,168 L1440,320 L0,320 Z",
               ].join(";")}
             />
           </path>
@@ -130,15 +128,15 @@ export default function HomePage() {
           <path fill="url(#heroWaveMid)">
             <animate
               attributeName="d"
-              dur="10s"
+              dur="17s"
               repeatCount="indefinite"
               calcMode="spline"
               keyTimes="0;0.5;1"
               keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
               values={[
-                "M0,230 C240,190 480,270 720,225 C960,180 1200,265 1440,220 L1440,320 L0,320 Z",
-                "M0,205 C240,255 480,175 720,235 C960,285 1200,190 1440,245 L1440,320 L0,320 Z",
-                "M0,230 C240,190 480,270 720,225 C960,180 1200,265 1440,220 L1440,320 L0,320 Z",
+                "M0,228 C240,220 480,232 720,224 C960,218 1200,230 1440,222 L1440,320 L0,320 Z",
+                "M0,222 C240,230 480,218 720,228 C960,232 1200,220 1440,228 L1440,320 L0,320 Z",
+                "M0,228 C240,220 480,232 720,224 C960,218 1200,230 1440,222 L1440,320 L0,320 Z",
               ].join(";")}
             />
           </path>
@@ -147,15 +145,15 @@ export default function HomePage() {
           <path fill="url(#heroWaveFront)">
             <animate
               attributeName="d"
-              dur="11s"
+              dur="18s"
               repeatCount="indefinite"
               calcMode="spline"
               keyTimes="0;0.5;1"
               keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
               values={[
-                "M0,265 C240,220 480,300 720,260 C960,220 1200,300 1440,260 L1440,320 L0,320 Z",
-                "M0,280 C240,315 480,255 720,285 C960,315 1200,250 1440,280 L1440,320 L0,320 Z",
-                "M0,265 C240,220 480,300 720,260 C960,220 1200,300 1440,260 L1440,320 L0,320 Z",
+                "M0,272 C240,266 480,278 720,270 C960,264 1200,278 1440,270 L1440,320 L0,320 Z",
+                "M0,278 C240,282 480,268 720,276 C960,282 1200,266 1440,276 L1440,320 L0,320 Z",
+                "M0,272 C240,266 480,278 720,270 C960,264 1200,278 1440,270 L1440,320 L0,320 Z",
               ].join(";")}
             />
           </path>
@@ -197,8 +195,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="animate-pop-in pop-delay-4 absolute bottom-8 left-1/2 -translate-x-1/2 text-navy/25 animate-bounce">
+        {/* <div className="animate-pop-in pop-delay-4 absolute bottom-8 left-1/2 -translate-x-1/2 text-navy/25 animate-bounce">
           <svg
             viewBox="0 0 24 24"
             className="w-5 h-5"
@@ -208,7 +205,7 @@ export default function HomePage() {
           >
             <path d="M19 9l-7 7-7-7" />
           </svg>
-        </div>
+        </div> */}
       </section>
 
       {/* ── SERVICES — dark navy band for contrast ── */}
