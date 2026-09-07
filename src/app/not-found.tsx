@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { Header } from "@/components/Header";
 
 export default function NotFound() {
   return (
-    <div className="bg-mist min-h-screen flex items-center">
+    <div className="bg-mist min-h-screen flex flex-col">
+      <Header variant="solid" active="" />
+      <div className="flex-1 flex items-center">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 py-24 text-center">
         <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
           404
@@ -19,6 +22,7 @@ export default function NotFound() {
         >
           Terug naar home
         </Link>
+      </div>
       </div>
     </div>
   );

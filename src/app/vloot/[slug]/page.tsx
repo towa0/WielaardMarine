@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { boats, getBoat } from '@/data/boats'
 import { ImagePlaceholder } from '@/components/ImagePlaceholder'
+import { Header } from '@/components/Header'
+import { company } from '@/data/company'
 
 export function generateStaticParams() {
   return boats.map((b) => ({ slug: b.slug }))
@@ -44,6 +46,7 @@ export default async function BoatDetailPage({ params }: Props) {
 
   return (
     <div className="bg-mist min-h-screen">
+      <Header variant="solid" active="Verhuur" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
 
         {/* Breadcrumb */}
@@ -155,7 +158,7 @@ export default async function BoatDetailPage({ params }: Props) {
                 Reserveer {boat.name}
               </Link>
               <a
-                href="tel:+31645345868"
+                href={`tel:${company.phone}`}
                 className="flex-1 py-3.5 border border-navy/30 text-navy text-center rounded hover:border-navy hover:bg-navy/5 transition-colors text-sm"
               >
                 Bel voor vragen

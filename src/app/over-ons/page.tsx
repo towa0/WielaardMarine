@@ -1,240 +1,152 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { Header } from "@/components/Header";
+import { company } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Over Ons",
+  title: "Over Wielaard Marine — bootverzorging aan de Binnenmaas",
   description:
-    "Leer WielaardMarine kennen — opgericht door Julian Wielaard vanuit een passie voor het water en bootverzorging. Polijsten en bootverhuur aan de Binnenmaas.",
+    "Wielaard Marine is Julian Wielaard. Wat begon met de eigen boot polijsten is uitgegroeid tot bootverzorging voor de hele Hoeksche Waard.",
   alternates: { canonical: "/over-ons" },
 };
 
 const milestones = [
-  {
-    year: "2023",
-    text: "Van hobby naar bedrijf — WielaardMarine officieel gestart",
-  },
-  {
-    year: "2024",
-    text: "Groeiende klantengroep: buren, vrienden en familie aan boord",
-  },
+  { year: "2023", text: "Van hobby naar bedrijf — Wielaard Marine officieel gestart" },
+  { year: "2024", text: "Groeiende klantengroep: buren, vrienden en familie aan boord" },
   { year: "2025", text: "Start bootverhuur op de Binnenmaas" },
-  {
-    year: "2026",
-    text: "Uitbreiding vloot en verder groeien in bootverzorging",
-  },
-];
-
-const values = [
-  {
-    title: "Veiligheid eerst",
-    text: "Elke boot vertrekt na een grondige technische check. Alle huurders krijgen een persoonlijke introductie.",
-  },
-  {
-    title: "Persoonlijke service",
-    text: "Geen callcenter. U belt of mailt ons en krijgt direct iemand die uw boot kent en uw naam weet.",
-  },
-  {
-    title: "Liefde voor het water",
-    text: "De Binnenmaas is ons thuis. Wij kennen de wateren, de winden en de mooiste ankerplaatsen.",
-  },
-  {
-    title: "Respect voor de natuur",
-    text: "Wij werken bewust met schone motoren en milieuvriendelijke onderhoudsproducten.",
-  },
+  { year: "2026", text: "Verder groeien in bootverzorging, en uitbreiding van de vloot" },
 ];
 
 export default function OverOnsPage() {
   return (
-    <div className="bg-mist min-h-screen">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
-            Wie wij zijn
+    <>
+      <Header variant="solid" active="Over ons" />
+
+      <section className="bg-white pt-14 pb-10 sm:pt-22 sm:pb-16">
+        <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
+          <p className="mb-4 font-mono text-[11px] tracking-[0.2em] text-azure uppercase">
+            Over ons
           </p>
-          <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-5">
-            Over WielaardMarine
+          <h1 className="font-heading mb-5 max-w-[24ch] text-[32px] leading-[1.06] font-semibold tracking-tight text-navy text-balance sm:text-[58px]">
+            Eén paar handen, drie jaar hetzelfde werk
           </h1>
-          <p className="text-ink-muted max-w-xl mx-auto leading-relaxed">
-            Opgericht door Julian Wielaard vanuit een persoonlijke passie voor
-            het water en de wens om boten er weer op hun best uit te laten zien.
+          <p className="max-w-[56ch] text-base leading-relaxed text-ink-muted text-pretty sm:text-lg">
+            Wielaard Marine is Julian Wielaard. Wat begon met de eigen boot
+            polijsten is uitgegroeid tot bootverzorging voor de hele
+            Hoeksche Waard.
           </p>
         </div>
+      </section>
 
-        {/* Story + team photo */}
-        <div className=" gap-14 mb-24 items-center">
-          <div className="space-y-5 text-ink-muted leading-relaxed">
-            <p>
-              Mijn naam is Julian Wielaard en van jongs af aan ben ik al veel op
-              het water te vinden. De passie voor boten zat er daarom al vroeg
-              in. Toch viel mij één ding altijd op: na een paar jaar verloren
-              veel boten hun glans en begonnen ze er dof en verweerd uit te
-              zien. Daarom besloot ik mijn eigen boot te polijsten.
-            </p>
-            <p>
-              Het resultaat bleef niet onopgemerkt. Al snel mocht ik ook de
-              boten van buren, vrienden en familie verzorgen. Wat begon als
-              hobby is in drie jaar tijd uitgegroeid tot WielaardMarine.
-            </p>
-            <p>
-              Bij WielaardMarine staan kwaliteit, perfectie en tevreden klanten
-              centraal. Ik neem graag de tijd om iedere boot weer in topconditie
-              te brengen. Polijsten zorgt niet alleen voor een mooie
-              uitstraling, maar helpt ook om de lak en gelcoat te beschermen
-              tegen weersinvloeden, vuil en verkleuring — zodat uw boot langer
-              in goede staat blijft en beter zijn waarde behoudt.
-            </p>
-            <p>
-              Als leuke extra biedt WielaardMarine ook bootverhuur aan op de
-              Binnenmaas. Zo kunt u na de polijstbeurt gelijk genieten van een
-              heerlijke ontspannen dag op het water in de Hoeksche Waard.
-            </p>
-          </div>
-
-          {/* <div className="relative aspect-[3/4] rounded-xl overflow-hidden shadow-xl">
-            <Image
-              src="/images/about-wielaardmarine.JPG"
-              alt="Julian Wielaard — WielaardMarine"
-              fill
-              className="object-cover object-center"
-              style={{ imageOrientation: "from-image" } as React.CSSProperties}
-            />
-          </div> */}
+      <section className="bg-white pb-14 sm:pb-28">
+        <div className="mx-auto flex max-w-[1180px] flex-col gap-4.5 px-4 sm:px-8">
+          <p className="max-w-[62ch] text-[16.5px] leading-relaxed text-ink-muted text-pretty">
+            Mijn naam is Julian Wielaard en van jongs af aan ben ik al veel
+            op het water te vinden. De passie voor boten zat er daarom al
+            vroeg in. Toch viel mij één ding altijd op: na een paar jaar
+            verloren veel boten hun glans en begonnen ze er dof en
+            verweerd uit te zien. Daarom besloot ik mijn eigen boot te
+            polijsten.
+          </p>
+          <p className="max-w-[62ch] text-[16.5px] leading-relaxed text-ink-muted text-pretty">
+            Het resultaat bleef niet onopgemerkt. Al snel mocht ik ook de
+            boten van buren, vrienden en familie verzorgen. Wat begon als
+            hobby is in drie jaar tijd uitgegroeid tot Wielaard Marine.
+          </p>
+          <p className="max-w-[62ch] text-[16.5px] leading-relaxed text-ink-muted text-pretty">
+            Polijsten zorgt niet alleen voor een mooie uitstraling, maar
+            helpt ook om lak en gelcoat te beschermen tegen
+            weersinvloeden, vuil en verkleuring — zodat uw boot langer in
+            goede staat blijft en beter zijn waarde behoudt. Ik neem daar
+            graag de tijd voor.
+          </p>
+          <p className="max-w-[62ch] text-[16.5px] leading-relaxed text-ink-muted text-pretty">
+            Als leuke extra verhuren wij ook boten op de Binnenmaas. Zo
+            kunt u na de polijstbeurt gelijk het water op.
+          </p>
         </div>
+      </section>
 
-        {/* Values */}
-        {/*<section className="mb-24">
-          <div className="text-center mb-10">
-            <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
-              Onze waarden
+      <section className="border-y border-mist-deep bg-mist py-14 sm:py-24">
+        <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
+          <div className="mb-8 max-w-[52ch] sm:mb-11">
+            <p className="mb-4 font-mono text-[11px] tracking-[0.18em] text-azure uppercase">
+              Mijlpalen
             </p>
-            <h2 className="font-heading text-navy text-3xl">
-              Waar wij voor staan
+            <h2 className="font-heading text-[26px] leading-tight font-semibold tracking-tight text-navy text-balance sm:text-4xl">
+              Van hobby naar bedrijf
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {values.map((v) => (
-              <div
-                key={v.title}
-                className="bg-white border border-navy/10 rounded-lg p-7"
-              >
-                <div className="w-8 h-px bg-azure mb-4" />
-                <h3 className="font-heading text-navy text-lg mb-2">{v.title}</h3>
-                <p className="text-ink-muted text-sm leading-relaxed">
-                  {v.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>*/}
-
-        {/* Timeline */}
-        <section className="mb-24">
-          <div className="text-center mb-10">
-            <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
-              Geschiedenis
-            </p>
-            <h2 className="font-heading text-navy text-3xl">Onze mijlpalen</h2>
-          </div>
-          <div className="relative pl-6 border-l border-azure/30 space-y-8 max-w-lg mx-auto">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
             {milestones.map((m) => (
-              <div key={m.year} className="relative">
-                <div className="absolute -left-[1.6rem] top-1 w-3 h-3 rounded-full bg-azure" />
-                <p className="text-azure text-xs font-mono uppercase tracking-widest mb-1">
+              <div key={m.year} className="border-t-2 border-navy pt-4.5">
+                <p className="font-heading mb-2.5 text-[22px] font-semibold text-azure">
                   {m.year}
                 </p>
-                <p className="text-ink-muted text-sm">{m.text}</p>
+                <p className="text-[15px] leading-relaxed text-ink-muted">
+                  {m.text}
+                </p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Location */}
-        <section>
-          <div className="text-center mb-10">
-            <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
+      <section className="bg-white py-14 sm:py-24">
+        <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
+          <div className="mb-8 max-w-[52ch] sm:mb-11">
+            <p className="mb-4 font-mono text-[11px] tracking-[0.18em] text-azure uppercase">
               Locatie
             </p>
-            <h2 className="font-heading text-navy text-3xl">
+            <h2 className="font-heading text-[26px] leading-tight font-semibold tracking-tight text-navy text-balance sm:text-4xl">
               Waar u ons vindt
             </h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            <div className="bg-white border border-navy/10 rounded-lg p-7 space-y-4 text-sm text-ink-muted">
-              <div>
-                <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
-                  Adres
-                </p>
 
-                <p>
-                  Maaslaantje 9
-                  <br />
-                  3299 AM Maasdam
-                  <br />
-                  Havenweg 1
+          <div className="grid grid-cols-1 items-start gap-5 sm:grid-cols-2 sm:gap-8">
+            <div className="flex flex-col gap-5.5 rounded border border-mist-deep p-6 sm:p-8">
+              <div>
+                <p className="mb-2 font-mono text-[10.5px] tracking-[0.16em] text-azure uppercase">Adres</p>
+                <p className="text-[15.5px] leading-relaxed text-ink">
+                  {company.address.street}<br />
+                  {company.address.postalCode} {company.address.city}
                 </p>
               </div>
               <div>
-                <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
-                  Openingstijden vaarseizoen
-                </p>
-                <p>
-                  Maandag t/m zaterdag: 08:00 – 18:00
-                  <br />
-                  Zondag: 09:00 – 16:00
-                </p>
+                <p className="mb-2 font-mono text-[10.5px] tracking-[0.16em] text-azure uppercase">Openingstijden</p>
+                <p className="text-[15.5px] leading-relaxed text-ink">{company.openingHours}</p>
               </div>
               <div>
-                <p className="text-azure text-xs font-mono uppercase tracking-widest mb-2">
-                  Buiten seizoen
-                </p>
-                <p>Op afspraak</p>
+                <p className="mb-2 font-mono text-[10.5px] tracking-[0.16em] text-azure uppercase">Telefoon</p>
+                <a href={`tel:${company.phone}`} className="text-[15.5px] font-semibold text-navy no-underline">
+                  {company.phoneDisplay}
+                </a>
               </div>
-              <div className="pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 text-azure text-sm hover:text-azure-dark transition-colors"
-                >
-                  Neem contact op
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
+              <div className="pt-1.5">
+                <Link href="/contact" className="inline-flex items-center gap-2 text-[15px] font-semibold text-azure no-underline hover:text-azure-dark">
+                  Offerte aanvragen
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </Link>
               </div>
             </div>
 
-            <div>
-              {/* Replace with Google Maps embed:
+            <div className="aspect-[4/3] overflow-hidden rounded border border-mist-deep">
               <iframe
-                src="https://www.google.com/maps/embed?pb=..."
+                src={company.mapsEmbedUrl}
+                title={`Kaart — ${company.address.street}, ${company.address.city}`}
                 width="100%"
-                height="300"
+                height="100%"
                 style={{ border: 0 }}
-                allowFullScreen
                 loading="lazy"
-                className="rounded-lg"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
               />
-              */}
-              <ImagePlaceholder
-                label="Kaart — Binnenmaas, Numansdorp"
-                aspectRatio="video"
-                className="rounded-lg overflow-hidden"
-              />
-              <p className="text-center text-ink-muted/40 text-xs mt-2 font-mono">
-                kaart volgt
-              </p>
             </div>
           </div>
-        </section>
-      </div>
-    </div>
+        </div>
+      </section>
+    </>
   );
 }

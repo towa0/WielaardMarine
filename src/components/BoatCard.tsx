@@ -11,7 +11,7 @@ export function BoatCard({ boat }: BoatCardProps) {
   return (
     <Link
       href={`/vloot/${boat.slug}`}
-      className="group block bg-white border border-navy/10 rounded-lg overflow-hidden hover:border-azure/60 hover:shadow-md hover:shadow-navy/10 transition-all duration-300 hover:-translate-y-1"
+      className="group block bg-white border border-mist-deep rounded overflow-hidden hover:border-azure/60 transition-colors duration-300"
     >
       {/* Image */}
       <div className="relative overflow-hidden">

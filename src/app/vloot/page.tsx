@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
+import { Header } from '@/components/Header'
 import { boats, type BoatType } from '@/data/boats'
 import { BoatCard } from '@/components/BoatCard'
+import { company } from '@/data/company'
 
 export const metadata: Metadata = {
-  title: 'Vloot',
+  title: 'Vloot te huur — sloepen op de Binnenmaas',
   description:
     'Naast bootverzorging en polijsten bieden wij ook boten te huur aan: sloepen, motorjachten en kajuitboten op de Binnenmaas in de Hoeksche Waard. Dag- en weekverhuur, honden welkom.',
   alternates: { canonical: '/vloot' },
@@ -12,83 +14,96 @@ export const metadata: Metadata = {
 const boatTypes: BoatType[] = ['Sloep', 'Motorboot', 'Kajuitboot', 'Zeilboot', 'RIB']
 
 export default function VlootPage() {
-  const available   = boats.filter((b) => b.available)
+  const available = boats.filter((b) => b.available)
   const unavailable = boats.filter((b) => !b.available)
 
   const byType = (type: BoatType) => available.filter((b) => b.type === type)
   const typesPresent = boatTypes.filter((t) => byType(t).length > 0)
 
   return (
-    <div className="bg-mist min-h-screen">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <>
+      <Header variant="solid" active="Verhuur" />
 
-        {/* Page header */}
-        <div className="mb-14 text-center">
-          <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">Ook mogelijk naast polijsten</p>
-          <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-5">Onze vloot te huur</h1>
-          <p className="text-ink-muted max-w-xl mx-auto leading-relaxed">
-            Naast bootverzorging bieden wij ook onze boten te huur aan. Kies de boot die bij uw plannen past —
-            twijfelt u? Bel ons, wij helpen u graag de juiste keuze maken.
+      <section className="bg-white pt-12 pb-8 sm:pt-19 sm:pb-12">
+        <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
+          <p className="mb-4 font-mono text-[11px] tracking-[0.2em] text-ink-muted uppercase">
+            Ook mogelijk naast polijsten
+          </p>
+          <h1 className="font-heading mb-4.5 max-w-[22ch] text-[28px] leading-[1.08] font-semibold tracking-tight text-navy text-balance sm:text-[44px]">
+            Onze vloot te huur
+          </h1>
+          <p className="max-w-[56ch] text-base leading-relaxed text-ink-muted text-pretty">
+            Naast bootverzorging bieden wij ook onze boten te huur aan. Kies
+            de boot die bij uw plannen past — twijfelt u? Bel ons, wij helpen
+            u graag de juiste keuze maken.
           </p>
         </div>
+      </section>
 
-        {/* Quick info strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14">
-          {[
-            { label: 'Boten beschikbaar', value: available.length.toString() },
-            { label: 'Geen vaarbewijs', value: 'Sloepen' },
-            { label: 'Verhuur vanaf', value: '½ dag' },
-            { label: 'Honden', value: 'Welkom' },
-          ].map((item) => (
-            <div key={item.label} className="bg-white border border-navy/10 rounded-lg p-5 text-center">
-              <p className="font-heading text-azure text-2xl mb-1">{item.value}</p>
-              <p className="text-ink-muted text-xs font-mono uppercase tracking-wider">{item.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* All boats — grouped by type */}
-        {typesPresent.map((type) => (
-          <section key={type} className="mb-14">
-            <div className="flex items-center gap-4 mb-6">
-              <h2 className="font-heading text-navy text-2xl">{type}en</h2>
-              <div className="flex-1 h-px bg-navy/10" />
-              <span className="text-ink-muted text-xs font-mono">{byType(type).length} boot{byType(type).length !== 1 ? 'en' : ''}</span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {byType(type).map((boat) => (
-                <BoatCard key={boat.slug} boat={boat} />
-              ))}
-            </div>
-          </section>
-        ))}
-
-        {/* Unavailable boats */}
-        {unavailable.length > 0 && (
-          <section className="mt-16 pt-10 border-t border-navy/10">
-            <h2 className="font-heading text-ink-muted text-xl mb-6">Momenteel niet beschikbaar</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 opacity-50">
-              {unavailable.map((boat) => (
-                <BoatCard key={boat.slug} boat={boat} />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Contact strip */}
-        <div className="mt-16 bg-navy border border-white/10 rounded-lg p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="font-heading text-white text-xl mb-1">Vragen of specifieke wensen?</h3>
-            <p className="text-white/60 text-sm">Wij denken graag mee over de beste optie voor uw groep.</p>
+      <section className="bg-white pb-12 sm:pb-22">
+        <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
+          <div className="mb-9 grid grid-cols-2 gap-px border border-mist-deep bg-mist-deep sm:mb-14 sm:grid-cols-4">
+            {[
+              { label: 'Boten beschikbaar', value: available.length.toString() },
+              { label: 'Geen vaarbewijs', value: 'Sloepen' },
+              { label: 'Verhuur vanaf', value: '½ dag' },
+              { label: 'Honden', value: 'Welkom' },
+            ].map((item) => (
+              <div key={item.label} className="bg-mist p-5">
+                <p className="font-heading mb-1 text-[22px] font-semibold text-navy">{item.value}</p>
+                <p className="font-mono text-[10.5px] tracking-[0.13em] text-ink-muted uppercase">{item.label}</p>
+              </div>
+            ))}
           </div>
-          <a
-            href="tel:+31612345678"
-            className="shrink-0 px-6 py-3 bg-white text-navy font-semibold rounded hover:bg-mist transition-colors text-sm"
-          >
-            Bel ons
-          </a>
+
+          {typesPresent.map((type) => (
+            <section key={type} className="mb-9 sm:mb-13">
+              <div className="mb-5 flex items-center gap-4">
+                <h2 className="font-heading text-[19px] font-semibold text-navy">{type}en</h2>
+                <div className="h-px flex-1 bg-mist-deep" />
+                <span className="font-mono text-[11px] text-ink-muted">
+                  {byType(type).length} boot{byType(type).length !== 1 ? 'en' : ''}
+                </span>
+              </div>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {byType(type).map((boat) => (
+                  <BoatCard key={boat.slug} boat={boat} />
+                ))}
+              </div>
+            </section>
+          ))}
+
+          {unavailable.length > 0 && (
+            <section className="mt-10 border-t border-mist-deep pt-9 sm:mt-14 sm:pt-13">
+              <h2 className="font-heading mb-5 text-[17px] font-semibold text-ink-muted">
+                Momenteel niet beschikbaar
+              </h2>
+              <div className="grid grid-cols-1 gap-5 opacity-50 sm:grid-cols-2 lg:grid-cols-3">
+                {unavailable.map((boat) => (
+                  <BoatCard key={boat.slug} boat={boat} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          <div className="mt-9 flex flex-col flex-wrap items-center justify-between gap-5 rounded border border-mist-deep bg-mist p-6 sm:mt-13 sm:flex-row sm:p-8">
+            <div className="min-w-0 text-center sm:text-left">
+              <h3 className="font-heading mb-1.5 text-lg font-semibold text-navy">
+                Vragen of specifieke wensen?
+              </h3>
+              <p className="text-[14.5px] text-ink-muted">
+                Wij denken graag mee over de beste optie voor uw groep.
+              </p>
+            </div>
+            <a
+              href={`tel:${company.phone}`}
+              className="shrink-0 rounded-sm bg-navy px-6 py-3.5 text-sm font-semibold text-white no-underline hover:bg-navy-light"
+            >
+              Bel ons
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   )
 }

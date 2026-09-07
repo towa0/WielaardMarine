@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Privacyverklaring",
@@ -26,6 +27,7 @@ function Section({
 export default function PrivacyverklaringPage() {
   return (
     <div className="bg-mist min-h-screen">
+      <Header variant="solid" active="" />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
         <div className="mb-12 text-center">
           <p className="text-azure text-xs font-mono uppercase tracking-widest mb-3">
@@ -59,11 +61,11 @@ export default function PrivacyverklaringPage() {
               <dt className="text-navy font-medium">Eigenaar</dt>
               <dd>Julian Wielaard</dd>
               <dt className="text-navy font-medium">Adres</dt>
-              <dd>Maaslaantje, Maasdam</dd>
+              <dd>Maaslaantje 9, 3299 AM Maasdam</dd>
               <dt className="text-navy font-medium">E-mail</dt>
               <dd>
                 <a
-                  href="mailto:info@wielaardmarine.nl"
+                  href="mailto:Julian5875wielaard@gmail.com"
                   className="text-azure hover:underline"
                 >
                   Julian5875wielaard@gmail.com

@@ -12,22 +12,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${BASE_URL}/vloot`,
+      url: `${BASE_URL}/diensten`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/diensten`,
+      url: `${BASE_URL}/werk`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/over-ons`,
+      url: `${BASE_URL}/vloot`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.6,
+      changeFrequency: 'weekly',
+      priority: 0.7,
     },
     {
       url: `${BASE_URL}/contact`,
@@ -36,19 +36,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${BASE_URL}/over-ons`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
+    },
+    {
       url: `${BASE_URL}/privacyverklaring`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/algemene-voorwaarden`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/huurvoorwaarden`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
   ]
 
-  const boatRoutes: MetadataRoute.Sitemap = boats.map((boat) => ({
-    url: `${BASE_URL}/vloot/${boat.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
+  const boatRoutes: MetadataRoute.Sitemap = boats
+    .filter((boat) => boat.available)
+    .map((boat) => ({
+      url: `${BASE_URL}/vloot/${boat.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }))
 
   return [...staticRoutes, ...boatRoutes]
 }
