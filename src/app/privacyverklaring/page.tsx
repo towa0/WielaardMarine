@@ -60,8 +60,6 @@ export default function PrivacyverklaringPage() {
               <dd>WielaardMarine</dd>
               <dt className="text-navy font-medium">Eigenaar</dt>
               <dd>Julian Wielaard</dd>
-              <dt className="text-navy font-medium">Adres</dt>
-              <dd>Maaslaantje 9, 3299 AM Maasdam</dd>
               <dt className="text-navy font-medium">E-mail</dt>
               <dd>
                 <a

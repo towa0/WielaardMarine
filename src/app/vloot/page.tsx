@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { boats, type BoatType } from '@/data/boats'
 import { BoatCard } from '@/components/BoatCard'
 import { company } from '@/data/company'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Vloot te huur — sloepen op de Binnenmaas',
+export const metadata: Metadata = pageMetadata({
+  title: 'Sloep of boot huren op de Binnenmaas',
   description:
-    'Naast bootverzorging en polijsten bieden wij ook boten te huur aan: sloepen, motorjachten en kajuitboten op de Binnenmaas in de Hoeksche Waard. Dag- en weekverhuur, honden welkom.',
-  alternates: { canonical: '/vloot' },
-}
+    'Huur een sloep of consoleboot op de Binnenmaas in de Hoeksche Waard. Per halve of hele dag, sloepen zonder vaarbewijs en honden welkom.',
+  path: '/vloot',
+})
 
 const boatTypes: BoatType[] = ['Sloep', 'Motorboot', 'Kajuitboot', 'Zeilboot', 'RIB']
 
@@ -30,7 +32,7 @@ export default function VlootPage() {
             Ook mogelijk naast polijsten
           </p>
           <h1 className="font-heading mb-4.5 max-w-[22ch] text-[28px] leading-[1.08] font-semibold tracking-tight text-navy text-balance sm:text-[44px]">
-            Onze vloot te huur
+            Sloep of boot huren op de Binnenmaas
           </h1>
           <p className="max-w-[56ch] text-base leading-relaxed text-ink-muted text-pretty">
             Naast bootverzorging bieden wij ook onze boten te huur aan. Kies
@@ -85,6 +87,38 @@ export default function VlootPage() {
               </div>
             </section>
           )}
+
+          <section className="mt-10 max-w-[64ch] sm:mt-14">
+            <h2 className="font-heading mb-4 text-[22px] leading-tight font-semibold text-navy sm:text-[28px]">
+              Zo werkt boot huren bij Wielaard Marine
+            </h2>
+            <p className="mb-3.5 text-base leading-relaxed text-ink-muted text-pretty">
+              Wij verhuren sloepen en een consoleboot op de Binnenmaas, in de
+              Hoeksche Waard. U huurt per halve of hele dag. Voor onze sloepen
+              heeft u geen vaarbewijs nodig, en honden zijn welkom aan boord.
+            </p>
+            <p className="mb-3.5 text-base leading-relaxed text-ink-muted text-pretty">
+              Welke boot past, hangt vooral af van het aantal personen:{' '}
+              {available.map((boat, index) => (
+                <span key={boat.slug}>
+                  {index > 0 && (index === available.length - 1 ? ' en ' : ', ')}
+                  <Link href={`/vloot/${boat.slug}`} className="font-medium">
+                    {boat.name}
+                  </Link>{' '}
+                  biedt plek aan maximaal {boat.capacity} personen
+                </span>
+              ))}
+              .
+            </p>
+            <p className="text-base leading-relaxed text-ink-muted text-pretty">
+              Reserveren doet u via het{' '}
+              <Link href="/contact" className="font-medium">contactformulier</Link>{' '}
+              of telefonisch. Voor de verhuur gelden onze{' '}
+              <Link href="/huurvoorwaarden" className="font-medium">huurvoorwaarden</Link>.
+              Heeft uw eigen boot onderhoud nodig? Bekijk dan onze{' '}
+              <Link href="/diensten" className="font-medium">polijstbehandelingen</Link>.
+            </p>
+          </section>
 
           <div className="mt-9 flex flex-col flex-wrap items-center justify-between gap-5 rounded border border-mist-deep bg-mist p-6 sm:mt-13 sm:flex-row sm:p-8">
             <div className="min-w-0 text-center sm:text-left">

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { Footer } from '@/components/Footer'
+import { JsonLd } from '@/components/JsonLd'
+import { businessJsonLd, OG_IMAGE } from '@/lib/seo'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -33,13 +35,15 @@ export const metadata: Metadata = {
     title: 'Wielaard Marine | Bootverzorging & polijsten Binnenmaas',
     description:
       'Handmatig polijstwerk en bootverzorging aan de Binnenmaas in de Hoeksche Waard, door Julian Wielaard.',
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [OG_IMAGE.url],
   },
   robots: {
     index: true,
     follow: true,
-  },
-  alternates: {
-    canonical: '/',
   },
 }
 
@@ -51,6 +55,7 @@ export default function RootLayout({
   return (
     <html lang="nl" className={spaceGrotesk.variable}>
       <body className="flex min-h-screen flex-col">
+        <JsonLd data={businessJsonLd()} />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

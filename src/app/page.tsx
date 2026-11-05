@@ -5,13 +5,14 @@ import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { diensten } from "@/data/diensten";
 import { company } from "@/data/company";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Boot polijsten in de Hoeksche Waard",
   description:
     "Handmatig polijstwerk en bootverzorging aan de Binnenmaas. Wij halen oxidatie en doffe plekken uit lak en gelcoat, en beschermen wat eronder zit.",
-  alternates: { canonical: "/" },
-};
+  path: "/",
+});
 
 const resultaten = [
   "Oxidatie, krassen en doffe vlekken verdwijnen uit lak en gelcoat",
@@ -47,6 +48,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
+      <Header variant="transparent" active="Polijsten" />
       <section className="relative min-h-[520px] h-[78svh] overflow-hidden bg-navy-dark">
         <Image
           src="/images/poloshed_boat1.jpg"
@@ -55,7 +57,7 @@ export default function HomePage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 z-[1] bg-navy-dark/46" />
+        <div className="absolute inset-0 z-[1] bg-navy/50" />
         <div
           className="absolute inset-0 z-[2]"
           style={{
@@ -64,14 +66,13 @@ export default function HomePage() {
           }}
         />
         <div className="relative z-[3] flex h-full flex-col">
-          <Header variant="transparent" active="Polijsten" />
           <div className="flex flex-1 items-end">
             <div className="mx-auto w-full max-w-[1180px] px-4 pb-11 sm:px-8 sm:pb-16">
               <p className="mb-4 font-mono text-[11px] tracking-[0.2em] text-white/80 uppercase">
-                Bootverzorging · Hoeksche Waard
+                Uw boot terug in nieuwstaat
               </p>
               <h1 className="font-heading mb-5 max-w-[19ch] text-[34px] leading-[1.04] font-semibold tracking-tight text-white text-balance sm:text-6xl">
-                Uw boot terug in nieuwstaat
+                Boot polijsten in de Hoeksche Waard
               </h1>
               <p className="mb-8 max-w-[46ch] text-base leading-relaxed text-white/90 text-pretty sm:text-lg">
                 Handmatig polijstwerk en bootverzorging aan de Binnenmaas. Wij
@@ -92,10 +93,8 @@ export default function HomePage() {
                   Bekijk ons werk
                 </Link>
               </div>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] tracking-[0.13em] text-white/62 uppercase">
-                <span>
-                  {company.address.street} · {company.address.city}
-                </span>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] tracking-[0.13em] text-white/85 uppercase">
+                <span>{company.region}</span>
                 <span>Handmatig werk</span>
                 <span>Persoonlijk advies</span>
               </div>
@@ -201,7 +200,7 @@ export default function HomePage() {
             {diensten.map((d) => (
               <Link
                 key={d.slug}
-                href={`/diensten#${d.slug}`}
+                href={`/diensten/${d.slug}`}
                 className="flex min-h-[190px] flex-col gap-3 bg-white p-7 no-underline hover:bg-mist"
               >
                 <span className="font-mono text-[11px] tracking-[0.14em] text-azure">

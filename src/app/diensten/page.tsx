@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { diensten } from "@/data/diensten";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Behandelingen — polijsten en coating",
+export const metadata: Metadata = pageMetadata({
+  title: "Boot polijsten en coating — behandelingen",
   description:
-    "Vier behandelingen die los of gecombineerd worden ingezet. Welke past hangt af van de staat van de toplaag — dat beoordelen wij, niet een prijslijst.",
-  alternates: { canonical: "/diensten" },
-};
+    "Vier behandelingen voor uw boot, los of gecombineerd: opfrisbeurt, glansrestauratie, coating en interieurreiniging. Handmatig, in de Hoeksche Waard.",
+  path: "/diensten",
+});
 
 export default function DienstenPage() {
   return (
@@ -22,7 +23,7 @@ export default function DienstenPage() {
             Behandelingen
           </p>
           <h1 className="font-heading mb-5 max-w-[22ch] text-[32px] leading-[1.06] font-semibold tracking-tight text-navy text-balance sm:text-[58px]">
-            Wat uw boot nodig heeft, en wat niet
+            Boot polijsten en coating: wat uw boot nodig heeft, en wat niet
           </h1>
           <p className="max-w-[56ch] text-base leading-relaxed text-ink-muted text-pretty sm:text-lg">
             Vier behandelingen die los of gecombineerd worden ingezet. Welke
@@ -31,13 +32,13 @@ export default function DienstenPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
             {diensten.map((d) => (
-              <a
+              <Link
                 key={d.slug}
-                href={`#${d.slug}`}
+                href={`/diensten/${d.slug}`}
                 className="rounded-full border border-mist-deep px-4 py-2 text-[13.5px] text-ink-muted no-underline hover:border-azure hover:text-azure"
               >
                 {d.title}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -55,17 +56,20 @@ export default function DienstenPage() {
                         {d.order}
                       </span>
                       <h2 className="font-heading text-[24px] leading-tight font-semibold tracking-tight text-navy sm:text-[34px]">
-                        {d.title}
+                        <Link href={`/diensten/${d.slug}`} className="text-navy no-underline hover:text-azure">
+                          {d.title}
+                        </Link>
                       </h2>
                     </div>
-                    {d.intro.map((p, i) => (
-                      <p
-                        key={i}
-                        className="mb-3.5 max-w-[52ch] text-base leading-relaxed text-ink-muted text-pretty last:mb-0"
-                      >
-                        {p}
-                      </p>
-                    ))}
+                    <p className="mb-5 max-w-[52ch] text-base leading-relaxed text-ink-muted text-pretty">
+                      {d.homeSummary}
+                    </p>
+                    <Link
+                      href={`/diensten/${d.slug}`}
+                      className="text-[15px] font-semibold text-azure no-underline hover:text-azure-dark"
+                    >
+                      Meer over {d.title.toLowerCase()}
+                    </Link>
                   </div>
 
                   <div className="rounded border border-mist-deep bg-mist p-6 sm:p-7">

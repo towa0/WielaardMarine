@@ -30,9 +30,12 @@ body {
         -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-a {
-    color: var(--color-azure);
-}
-a:hover {
-    color: var(--color-azure-dark);
+/* In a layer, so text-* utilities on a link win over this default. */
+@layer base {
+    a {
+        color: var(--color-azure);
+    }
+    a:hover {
+        color: var(--color-azure-dark);
+    }
 }

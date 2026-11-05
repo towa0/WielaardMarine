@@ -1,101 +1,156 @@
-export type WerkSpan = "square" | "wide" | "tall" | "big";
-
 export interface WerkFoto {
   id: string;
-  src: string; // /images/...
+  src: string;
   alt: string; // descriptive, for SEO
-  caption: string; // one line, lowercase, boottype + wat er gedaan is
-  span?: WerkSpan;
+  caption: string; // one line, boottype + wat er te zien is
+  width: number;
+  height: number;
 }
 
-// De ene set waar we een echt voor/na-paar van hebben.
-export const werkVoorNa = {
-  before: "/images/boat_washed_before.JPG",
-  after: "/images/boat_washed_after.jpg",
-  title: "Kajuitboot, geoxideerde romp",
-  subtitle: "Volledige glansrestauratie",
-  dienstSlug: "glansrestauratie",
+export interface WerkPaar {
+  id: string;
+  title: string;
+  description: string;
+  before: { src: string; alt: string; position?: string };
+  after: { src: string; alt: string; position?: string };
+}
+
+const dir = "/images/wielaard-before-after";
+
+// Dezelfde boot, vergelijkbare hoek, maar niet pixel-gelijk: daarom twee
+// panelen naast elkaar en niet in de BeforeAfterSlider.
+export const werkParen: WerkPaar[] = [
+  {
+    id: "lago-amore",
+    title: "Lago Amore 570, zwarte romp",
+    description:
+      "Deze zwarte sloep kwam binnen met een doffe romp vol aanslag. Na het polijsten staat de romp in hoogglans en spiegelt de omgeving in het gelcoat.",
+    before: {
+      src: `${dir}/lago-amore-boeg-voor.jpeg`,
+      alt: "Boeg van zwarte sloep Lago Amore 570, dof en vol aanslag, voor het polijsten",
+    },
+    after: {
+      src: `${dir}/lago-amore-boeg-na.jpeg`,
+      alt: "Boeg van dezelfde Lago Amore 570 in hoogglans, omgeving spiegelt in de romp",
+      position: "center top",
+    },
+  },
+  {
+    id: "bavaria",
+    title: "Bavaria motorjacht, blauwe romp",
+    description:
+      "De blauwe romp van deze Bavaria was verkleurd en dof. Na het polijsten is de kleur weer diep blauw, met een glans waarin de loods te zien is.",
+    before: {
+      src: `${dir}/bavaria-romp-voor.jpeg`,
+      alt: "Romp van Bavaria motorjacht, verkleurd en dof blauw, voor het polijsten",
+    },
+    after: {
+      src: `${dir}/bavaria-romp-na.jpeg`,
+      alt: "Romp van dezelfde Bavaria in diep blauw en hoogglans, na het polijsten",
+    },
+  },
+];
+
+export const werkTapeTest = {
+  src: `${dir}/blauwe-parel-tape-test.jpeg`,
+  alt: "Donkerblauwe romp Blauwe Parel met verticale tapestrook: links gepolijst en spiegelend, rechts nog dof",
+  title: "Eén romp, half gepolijst",
+  caption:
+    "Links van de tape gepolijst, rechts nog niet. Zelfde boot, zelfde moment.",
 };
 
+// Mensen aan het werk: staand formaat, twee per rij.
+export const werkAanHetWerk: WerkFoto[] = [
+  {
+    id: "werk-steiger",
+    src: `${dir}/spiegel-afgeplakt-werk-steiger.jpeg`,
+    alt: "Polijsten vanaf een steiger aan een afgeplakte blauwe spiegel",
+    caption: "Blauwe spiegel — afgeplakt en vanaf de steiger",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    id: "jacht-kajuit-werk",
+    src: `${dir}/motorjacht-0614yv-werk-kajuit.jpeg`,
+    alt: "Polijstmachine in de hand naast de kajuit van een wit motorjacht in de loods",
+    caption: "Motorjacht, kajuit — machine in de hand",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    id: "werk-ladder",
+    src: `${dir}/motorjacht-6yb764-werk-ladder.jpeg`,
+    alt: "Werk op een ladder aan de opbouw van een wit motorjacht op de kant",
+    caption: "Motorjacht op de kant — werk aan de opbouw",
+    width: 1200,
+    height: 1600,
+  },
+  {
+    id: "jacht-voordek",
+    src: `${dir}/motorjacht-0614yv-voordek-werk.jpeg`,
+    alt: "Wit motorjacht in de loods, voordek spiegelt als glas tijdens het polijsten",
+    caption: "Motorjacht, voordek — tijdens het werk",
+    width: 1200,
+    height: 1600,
+  },
+];
+
+// Liggende foto's over de volle breedte, staande per twee.
 export const werkFotos: WerkFoto[] = [
   {
     id: "highland-boeg",
-    src: "/images/sloep-highland-boeg.jpg",
-    alt: "Zwarte sloep Highland, boeg in hoogglans na polijsten, omgeving spiegelt in de romp",
-    caption: "Sloep, zwarte romp — volledige glansrestauratie",
-    span: "big",
+    src: `${dir}/highland-boeg-close-na.jpeg`,
+    alt: "Zwarte sloep Highland, boeg in hoogglans na polijsten, klinkers spiegelen in de romp",
+    caption: "Sloep Highland, zwarte romp — na polijsten",
+    width: 1600,
+    height: 1200,
   },
   {
-    id: "grid-1",
-    src: "/images/grid_img-1.jpg",
-    alt: "Motorjacht na polijsten",
-    caption: "Motorjacht na polijsten",
-    span: "wide",
+    id: "bliss-boeg",
+    src: `${dir}/bliss-boeg-na.jpeg`,
+    alt: "Bliss sportboot in de werkplaats met zwarte boeg in hoogglans",
+    caption: "Bliss, zwarte boeg — na polijsten",
+    width: 1200,
+    height: 1600,
   },
   {
-    id: "kajuitboot-dek",
-    src: "/images/polijstwerk-kajuitboot-dek.jpg",
-    alt: "Julian polijst met machine het kajuitdak van een wit motorjacht in de loods",
-    caption: "Motorjacht, kajuitdak — machinaal polijsten",
-    span: "tall",
+    id: "lago-amore-zijkant-voor",
+    src: `${dir}/lago-amore-zijkant-voor.jpeg`,
+    alt: "Zijkant van Lago Amore 570 voor behandeling, doffe romp met aanslag en groen op de stootrand",
+    caption: "Lago Amore 570, zijkant — zo kwam hij binnen",
+    width: 1200,
+    height: 1600,
   },
   {
-    id: "grid-2",
-    src: "/images/grid_img-2.jpg",
-    alt: "Close-up gelcoat na behandeling",
-    caption: "Close-up gelcoat na behandeling",
-    span: "square",
+    id: "lago-amore-achterzijde",
+    src: `${dir}/lago-amore-achterzijde-na.jpeg`,
+    alt: "Achterzijde van Lago Amore 570, licht gelcoat glanzend na behandeling",
+    caption: "Lago Amore 570, achterzijde — na behandeling",
+    width: 1600,
+    height: 870,
   },
   {
-    id: "poloshed-1",
-    src: "/images/poloshed_boat1.jpg",
-    alt: "Volledige restauratie, eindresultaat",
-    caption: "Volledige restauratie",
-    span: "big",
+    id: "jacht-zijkant",
+    src: `${dir}/motorjacht-0614yv-zijkant-na.jpeg`,
+    alt: "Wit motorjacht in de loods met glanzende opbouw en een fles polijstmiddel op het dek",
+    caption: "Motorjacht, opbouw — na polijsten",
+    width: 1200,
+    height: 1600,
   },
   {
-    id: "maasdam-water",
-    src: "/images/sloep-maasdam-water.jpg",
-    alt: "Grijze sloep Maasdam aan de kant met teakdek, na behandeling",
-    caption: "Sloep, grijze romp en teakdek — opfrisbeurt",
-    span: "tall",
+    id: "jacht-kajuit-na",
+    src: `${dir}/motorjacht-0614yv-kajuit-na.jpeg`,
+    alt: "Kajuit en gangboord van wit motorjacht met glanzend gelcoat en gepoetst RVS",
+    caption: "Motorjacht, kajuit en RVS — na polijsten",
+    width: 1200,
+    height: 1600,
   },
   {
-    id: "grid-6",
-    src: "/images/grid_img-6.JPG",
-    alt: "Detail spiegel na polijsten",
-    caption: "Detail spiegel",
-    span: "wide",
+    id: "jacht-6yb-romp",
+    src: `${dir}/motorjacht-6yb764-romp-spiegeling-na.jpeg`,
+    alt: "Witte romp van motorjacht op de kant, omgeving spiegelt in het gelcoat",
+    caption: "Motorjacht, witte romp — spiegeling in het gelcoat",
+    width: 1600,
+    height: 1200,
   },
-  {
-    id: "grid-4",
-    src: "/images/grid_img-4.jpg",
-    alt: "Sloep gepolijst",
-    caption: "Sloep gepolijst",
-    span: "square",
-  },
-  {
-    id: "grid-5",
-    src: "/images/grid_img-5.jpg",
-    alt: "Kajuitboot romp voor behandeling",
-    caption: "Kajuitboot romp voor behandeling",
-    span: "square",
-  },
-
-  // Nog niet aangeleverd — src toevoegen en uncommenten zodra het bestand
-  // in public/images staat. Component hoeft niet aangeraakt te worden.
-  // {
-  //   id: "blauwe-parel-afplakken",
-  //   src: "/images/blauwe-parel-afplakken.jpg",
-  //   alt: "Donkerblauwe romp Blauwe Parel Zwartewaal, half afgeplakt met tape ter voorbereiding",
-  //   caption: "Voorbereiding: afplakken vóór behandeling",
-  //   span: "wide",
-  // },
-  // {
-  //   id: "motorjacht-ladder",
-  //   src: "/images/motorjacht-ladder.jpg",
-  //   alt: "Julian op een ladder aan het werk bij een wit-blauw motorjacht, buiten",
-  //   caption: "Motorjacht, romp en opbouw — behandeling ter plaatse",
-  //   span: "tall",
-  // },
 ];

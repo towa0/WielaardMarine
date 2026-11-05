@@ -6,6 +6,7 @@ import { boats, getBoat } from '@/data/boats'
 import { ImagePlaceholder } from '@/components/ImagePlaceholder'
 import { Header } from '@/components/Header'
 import { company } from '@/data/company'
+import { pageMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return boats.map((b) => ({ slug: b.slug }))
@@ -18,15 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const boat = getBoat(slug)
   if (!boat) return {}
 
-  return {
-    title: boat.name,
-    description: boat.shortDescription,
-    alternates: { canonical: `/vloot/${slug}` },
-    openGraph: {
-      title: `${boat.name} | WielaardMarine`,
-      description: boat.shortDescription,
-    },
-  }
+  return pageMetadata({
+    title: `${boat.name} huren op de Binnenmaas`,
+    description: `${boat.shortDescription} Te huur op de Binnenmaas in de Hoeksche Waard.`,
+    path: `/vloot/${slug}`,
+  })
 }
 
 export default async function BoatDetailPage({ params }: Props) {
@@ -117,7 +114,7 @@ export default async function BoatDetailPage({ params }: Props) {
               )}
             </div>
 
-            <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-4">{boat.name}</h1>
+            <h1 className="font-heading text-navy text-4xl sm:text-5xl mb-4">{boat.name} huren</h1>
             <p className="text-ink-muted leading-relaxed mb-8">{boat.shortDescription}</p>
 
             {/* Pricing */}
@@ -206,6 +203,30 @@ export default async function BoatDetailPage({ params }: Props) {
                 {p}
               </p>
             ))}
+          </div>
+        </div>
+
+        <div className="mt-12 max-w-3xl">
+          <h2 className="font-heading text-navy text-2xl mb-6">{boat.name} huren op de Binnenmaas</h2>
+          <div className="space-y-4">
+            <p className="text-ink-muted leading-relaxed">
+              {boat.name} is een {boat.type.toLowerCase()} van {boat.length.replace('.', ',')} met
+              plek voor maximaal {boat.capacity} personen, te huur op de Binnenmaas in de Hoeksche
+              Waard.
+              {boat.features.includes('Geen vaarbewijs vereist') &&
+                ' Voor deze boot heeft u geen vaarbewijs nodig.'}
+            </p>
+            <p className="text-ink-muted leading-relaxed">
+              {boat.pricePerHalfDay && `Een halve dag kost € ${boat.pricePerHalfDay}, `}
+              {boat.pricePerHalfDay ? 'een' : 'Een'} hele dag € {boat.pricePerDay}
+              {boat.pricePerWeek && ` en een week € ${boat.pricePerWeek}`}. Reserveren kan via het{' '}
+              <Link href={`/contact?boot=${boat.slug}`}>contactformulier</Link> of telefonisch.
+              Voor de verhuur gelden onze <Link href="/huurvoorwaarden">huurvoorwaarden</Link>.
+            </p>
+            <p className="text-ink-muted leading-relaxed">
+              Twijfelt u welke boot bij uw groep past? <Link href="/vloot">Bekijk de hele vloot</Link>{' '}
+              of bel ons, dan denken wij graag mee.
+            </p>
           </div>
         </div>
 

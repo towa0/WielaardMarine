@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { boats } from '@/data/boats'
+import { diensten } from '@/data/diensten'
 
 const BASE_URL = 'https://www.wielaardmarine.nl' // ← update to your real domain
 
@@ -61,6 +62,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+  const dienstRoutes: MetadataRoute.Sitemap = diensten.map((dienst) => ({
+    url: `${BASE_URL}/diensten/${dienst.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
   const boatRoutes: MetadataRoute.Sitemap = boats
     .filter((boat) => boat.available)
     .map((boat) => ({
@@ -70,5 +78,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }))
 
-  return [...staticRoutes, ...boatRoutes]
+  return [...staticRoutes, ...dienstRoutes, ...boatRoutes]
 }
