@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -26,6 +26,33 @@ export function Header({ variant = "solid", active = "" }: HeaderProps) {
   const onDark = variant === "transparent";
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMenuOpen(false);
+      menuButtonRef.current?.focus();
+    };
+    // The mobile menu doesn't exist at desktop widths, so don't leave it open.
+    const desktop = window.matchMedia("(min-width: 48rem)");
+    const onBreakpoint = (event: MediaQueryListEvent) => {
+      if (event.matches) setMenuOpen(false);
+    };
+
+    const previousOverflow = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+    desktop.addEventListener("change", onBreakpoint);
+    return () => {
+      document.documentElement.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+      desktop.removeEventListener("change", onBreakpoint);
+    };
+  }, [menuOpen]);
 
   useEffect(() => {
     let lastY = Math.max(0, window.scrollY);
@@ -95,13 +122,14 @@ export function Header({ variant = "solid", active = "" }: HeaderProps) {
           )}
         </Link>
 
-        <nav className="flex flex-wrap items-center justify-end gap-0.5">
+        <nav aria-label="Hoofdmenu" className="hidden items-center justify-end gap-0.5 md:flex">
           {navItems.map((item) => {
             const isActive = item.label === active;
             return (
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={isActive ? "page" : undefined}
                 className={[
                   "border-b-2 px-3 py-2 text-sm font-medium tracking-[0.01em] no-underline transition-colors",
                   onDark
@@ -127,7 +155,81 @@ export function Header({ variant = "solid", active = "" }: HeaderProps) {
             Offerte aanvragen
           </Link>
         </nav>
+
+        <button
+          ref={menuButtonRef}
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="mobiel-menu"
+          aria-label={menuOpen ? "Menu sluiten" : "Menu openen"}
+          onClick={() => setMenuOpen((open) => !open)}
+          className={[
+            "-mr-2 flex h-11 w-11 items-center justify-center rounded-sm md:hidden",
+            onDark ? "text-white" : "text-navy",
+          ].join(" ")}
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          >
+            {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+          </svg>
+        </button>
       </div>
+
+      {menuOpen && (
+        <>
+          {/* Absolute, not fixed: the header's backdrop-blur and translate make it the containing block for fixed children. */}
+          <div
+            aria-hidden="true"
+            onClick={() => setMenuOpen(false)}
+            className="absolute inset-x-0 top-full h-dvh bg-navy-dark/40 md:hidden"
+          />
+          <nav
+            id="mobiel-menu"
+            aria-label="Hoofdmenu"
+            className={[
+              "absolute inset-x-0 top-full max-h-[calc(100dvh-69px)] overflow-y-auto border-b px-4 pb-5 pt-2 shadow-[0_10px_30px_-14px_rgba(11,41,71,0.55)] sm:px-8 md:hidden",
+              onDark ? "border-white/10 bg-navy-dark" : "border-mist-deep bg-white",
+            ].join(" ")}
+          >
+            {navItems.map((item) => {
+              const isActive = item.label === active;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                  className={[
+                    "block border-b py-3.5 text-base font-medium no-underline",
+                    onDark
+                      ? ["border-white/10", isActive ? "text-white hover:text-white" : "text-white/85 hover:text-white"].join(" ")
+                      : ["border-mist-deep", isActive ? "text-azure" : "text-navy hover:text-azure"].join(" "),
+                  ].join(" ")}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
+              className={[
+                "mt-4 block rounded-sm px-5 py-3 text-center text-sm font-semibold tracking-[0.01em] no-underline",
+                onDark ? "bg-white text-navy hover:text-navy" : "bg-navy text-white hover:text-white",
+              ].join(" ")}
+            >
+              Offerte aanvragen
+            </Link>
+          </nav>
+        </>
+      )}
     </header>
   );
 }
